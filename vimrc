@@ -1,4 +1,5 @@
 set nocompatible               " be iMproved
+set encoding=utf-8
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -54,6 +55,9 @@ Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/neocomplcache'
 Bundle 'ervandew/supertab'
+
+
+Bundle 'Lokaltog/vim-powerline'
 
 " non github repos
 "
