@@ -23,8 +23,6 @@ nmap <Leader>bc :BundleClean<CR>
 
 " My Bundles here:
 "
-Bundle 'Headlights'
-
 Bundle 'tComment'
 map <silent><D-/> :TComment<CR>
 
@@ -71,6 +69,8 @@ let g:CommandTMaxHeight=25
 " colorschemes
 "
 Bundle 'github-theme'
+Bundle 'Railscasts-Theme-GUIand256color'
+
 
 
 filetype plugin indent on     " required!
@@ -84,24 +84,22 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
-" let g:solarized_termcolors=256
-
 " -----------------
 " Powerline config
 " -----------------
 let g:Powerline_symbols = 'fancy'
 
 let g:macvim_hig_shift_movement=1
-
-set background=light
 set guifont=DejaVu\ Sans\ Mono:h12
-
 set guioptions-=T
-
 map <Leader>n :NERDTreeToggle<CR>
 
 
-colorscheme github
+if has('gui_running')
+  colorscheme github
+else
+  colorscheme railscasts
+endif
 
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
