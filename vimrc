@@ -39,6 +39,7 @@ Bundle 'vim-coffee-script'
 Bundle 'ZoomWin'
 Bundle 'ledger.vim'
 Bundle 'ledger.vim-indent'
+Bundle 'ack.vim'
 
 " GitHub bundles
 "
@@ -55,7 +56,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/neocomplcache'
 Bundle 'ervandew/supertab'
-
+Bundle 'briandoll/change-inside-surroundings.vim'
+Bundle 'claco/jasmine.vim'
 
 Bundle 'Lokaltog/vim-powerline'
 
@@ -68,8 +70,6 @@ let g:CommandTMaxHeight=25
 
 " colorschemes
 "
-Bundle 'beauty256'
-Bundle 'desert-warm-256'
 Bundle 'github-theme'
 
 
