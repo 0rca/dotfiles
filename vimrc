@@ -86,6 +86,11 @@ filetype plugin indent on     " required!
 
 " let g:solarized_termcolors=256
 
+" -----------------
+" Powerline config
+" -----------------
+let g:Powerline_symbols = 'fancy'
+
 let g:macvim_hig_shift_movement=1
 
 set background=light
