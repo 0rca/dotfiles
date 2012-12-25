@@ -22,4 +22,4 @@ source $HOME/.zshrc.local
 # enable zmv command
 autoload zmv
 
-eval $(dircolors -b $HOME/.dotfiles/LS_COLORS/LS_COLORS)
+eval $(dircolors -b $HOME/.dotify/LS_COLORS/LS_COLORS)
