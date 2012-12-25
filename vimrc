@@ -89,7 +89,7 @@ filetype plugin indent on     " required!
 let g:Powerline_symbols = 'fancy'
 
 let g:macvim_hig_shift_movement=1
-set guifont=DejaVu\ Sans\ Mono:h12
+set guifont=DejaVu\ Sans\ Mono:h16
 set guioptions-=T
 map <Leader>n :NERDTreeToggle<CR>
 
@@ -110,8 +110,8 @@ set mousemodel=popup
 " Backups
 " ---------------
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set backupdir=~/.vim.local/backup
+set directory=~/.vim.local/tmp
 
 " ---------------
 " UI
