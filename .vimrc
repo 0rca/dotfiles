@@ -72,7 +72,6 @@ Bundle 'github-theme'
 Bundle 'Railscasts-Theme-GUIand256color'
 
 
-
 filetype plugin indent on     " required!
 
 " Brief help

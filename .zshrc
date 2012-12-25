@@ -15,7 +15,7 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # rbenv setup
-if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init - )"; fi
 
 source $HOME/.zshrc.local
 
