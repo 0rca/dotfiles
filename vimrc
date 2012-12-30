@@ -217,6 +217,7 @@ if has("autocmd")
 
   autocmd BufWritePre * :%s/\s\+$//e
   autocmd BufNewFile,BufRead *.ldg,*.ledger  setf ledger
+  autocmd BufNewFile,BufRead *.md  set filetype=markdown
 endif
 
 " remap CMD+N tab switching
