@@ -215,7 +215,7 @@ if has("autocmd")
         \   exe "normal! g`\"" |
         \ endif
 
-  " autocmd BufWritePre * :%s/\s\+$//e
+  autocmd BufWritePre * :%s/\s\+$//e
   autocmd BufNewFile,BufRead *.ldg,*.ledger  setf ledger
   autocmd BufNewFile,BufRead *.md  set filetype=markdown
 endif
