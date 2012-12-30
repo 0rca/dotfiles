@@ -236,9 +236,8 @@ map <D-S-Left> gT
 " remap ZoomWin
 map <Leader><Leader> :ZoomWin<CR>
 
-
 " redundant whitespace highlighing
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=grey guibg=grey
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
