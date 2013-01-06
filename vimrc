@@ -12,11 +12,6 @@ filetype off                   " required!
 " Set leader to ,
 let mapleader=","
 
-nmap <Leader>bi :BundleInstall<CR>
-nmap <Leader>bi! :BundleInstall!<CR>
-nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
-nmap <Leader>bc :BundleClean<CR>
-
 " My Bundles here:
 "
 " Bundle: tComment
@@ -56,7 +51,6 @@ let NERDTreeHijackNetrw=1
 " Bundle: ervandew/supertab
 " Bundle: briandoll/change-inside-surroundings.vim
 " Bundle: claco/jasmine.vim
-
 " Bundle: Lokaltog/vim-powerline
 
 " non github repos
