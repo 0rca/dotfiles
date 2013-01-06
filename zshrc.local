@@ -1,3 +1,4 @@
+alias vundle='vim +BundleInstall  +qall'
 alias d='dotify'
 alias bx='bundle exec'
 alias g='git status'
