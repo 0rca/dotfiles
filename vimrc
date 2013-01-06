@@ -1,9 +1,9 @@
+call pathogen#infect()
+
 set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
 " ---------------
 " Leader
@@ -12,10 +12,6 @@ call vundle#rc()
 " Set leader to ,
 let mapleader=","
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
 nmap <Leader>bi :BundleInstall<CR>
 nmap <Leader>bi! :BundleInstall!<CR>
 nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
@@ -23,69 +19,60 @@ nmap <Leader>bc :BundleClean<CR>
 
 " My Bundles here:
 "
-Bundle 'tComment'
+" Bundle: tComment
 map <silent><D-/> :TComment<CR>
 
 
-Bundle 'The-NERD-tree'
+" Bundle: The-NERD-tree
 "from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
 let NERDTreeHijackNetrw=1
 
-Bundle 'camelcasemotion'
-Bundle 'Gist.vim'
-Bundle 'Syntastic'
-Bundle 'textobj-user'
-Bundle 'textobj-rubyblock'
-Bundle 'vim-coffee-script'
-Bundle 'ZoomWin'
-Bundle 'ledger.vim'
-Bundle 'ledger.vim-indent'
-Bundle 'ack.vim'
-Bundle 'apidock.vim'
+" Bundle: camelcasemotion
+" Bundle: Gist.vim
+" Bundle: Syntastic
+" Bundle: textobj-user
+" Bundle: textobj-rubyblock
+" Bundle: vim-coffee-script
+" Bundle: ZoomWin
+" Bundle: ledger.vim
+" Bundle: ledger.vim-indent
+" Bundle: ack.vim
+" Bundle: apidock.vim
 
 " GitHub bundles
 "
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-endwise'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Shougo/neocomplcache'
-Bundle 'ervandew/supertab'
-Bundle 'briandoll/change-inside-surroundings.vim'
-Bundle 'claco/jasmine.vim'
+" Bundle: tpope/vim-haml
+" Bundle: tpope/vim-fugitive
+" Bundle: tpope/vim-bundler
+" Bundle: tpope/vim-eunuch
+" Bundle: tpope/vim-rails
+" Bundle: tpope/vim-unimpaired
+" Bundle: tpope/vim-surround
+" Bundle: tpope/vim-repeat
+" Bundle: tpope/vim-abolish
+" Bundle: tpope/vim-endwise
+" Bundle: Lokaltog/vim-easymotion
+" Bundle: Shougo/neocomplcache
+" Bundle: ervandew/supertab
+" Bundle: briandoll/change-inside-surroundings.vim
+" Bundle: claco/jasmine.vim
 
-Bundle 'Lokaltog/vim-powerline'
+" Bundle: Lokaltog/vim-powerline
 
 " non github repos
 "
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle: git://git.wincent.com/command-t.git
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
 
 " colorschemes
 "
-Bundle 'github-theme'
-Bundle 'Railscasts-Theme-GUIand256color'
+" Bundle: github-theme
+" Bundle: Railscasts-Theme-GUIand256color
 
 
 filetype plugin indent on     " required!
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
 " -----------------
 " Powerline config
