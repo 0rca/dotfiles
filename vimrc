@@ -38,6 +38,7 @@ Bundle 'ZoomWin'
 Bundle 'ledger.vim'
 Bundle 'ledger.vim-indent'
 Bundle 'ack.vim'
+Bundle 'apidock.vim'
 
 " GitHub bundles
 "
