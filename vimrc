@@ -23,7 +23,6 @@ let NERDTreeHijackNetrw=1 "from (http://vimcasts.org/blog/2013/01/oil-and-vinega
 map <Leader>n :NERDTreeToggle<CR>
 
 " Bundle: camelcasemotion
-" Bundle: Syntastic
 " #Bundle: Gist.vim
 " Bundle: textobj-user
 " Bundle: textobj-rubyblock
@@ -36,6 +35,7 @@ map <Leader>n :NERDTreeToggle<CR>
 
 " GitHub bundles
 "
+" Bundle: scrooloose/syntastic
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
 " Bundle: tpope/vim-bundler
