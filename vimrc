@@ -43,6 +43,8 @@ if has("autocmd")
 endif
 
 " Bundle: scrooloose/syntastic
+
+" Bundle: tpope/vim-sensible master # sensible Vim defaults
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
 " Bundle: tpope/vim-bundler
