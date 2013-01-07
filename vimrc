@@ -19,8 +19,8 @@ map <silent><D-/> :TComment<CR>
 
 
 " Bundle: The-NERD-tree
-"from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
-let NERDTreeHijackNetrw=1
+let NERDTreeHijackNetrw=1 "from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
+map <Leader>n :NERDTreeToggle<CR>
 
 " Bundle: camelcasemotion
 " Bundle: Gist.vim
@@ -47,11 +47,13 @@ let NERDTreeHijackNetrw=1
 " Bundle: tpope/vim-abolish
 " Bundle: tpope/vim-endwise
 " Bundle: Lokaltog/vim-easymotion
+" Bundle: Lokaltog/vim-powerline develop
+let g:Powerline_symbols = 'fancy'
+
 " Bundle: Shougo/neocomplcache
 " Bundle: ervandew/supertab
 " Bundle: briandoll/change-inside-surroundings.vim
 " Bundle: claco/jasmine.vim
-" Bundle: Lokaltog/vim-powerline
 
 " non github repos
 "
@@ -68,15 +70,9 @@ let g:CommandTMaxHeight=25
 
 filetype plugin indent on     " required!
 
-" -----------------
-" Powerline config
-" -----------------
-let g:Powerline_symbols = 'fancy'
-
 let g:macvim_hig_shift_movement=1
 set guifont=DejaVu\ Sans\ Mono:h16
 set guioptions-=T
-map <Leader>n :NERDTreeToggle<CR>
 
 
 if has('gui_running')
