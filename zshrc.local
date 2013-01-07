@@ -43,9 +43,6 @@ alias darkstat-rst="sudo kill -USR1 \`sudo cat /var/run/darkstat/darkstat.pid\`"
 export MY_RUBY_HOME=/usr
 
 
-alias ext40='unlink public/extjs; ln -s extjs-4.0.2 public/extjs'
-alias ext41='unlink public/extjs; ln -s extjs-4.1.0 public/extjs'
-
 alias lss='du -sh * |sort -hr'
 alias ls='ls -F --color'
 alias ll='ls -F --color -l'
