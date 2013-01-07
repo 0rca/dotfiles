@@ -23,8 +23,8 @@ let NERDTreeHijackNetrw=1 "from (http://vimcasts.org/blog/2013/01/oil-and-vinega
 map <Leader>n :NERDTreeToggle<CR>
 
 " Bundle: camelcasemotion
-" Bundle: Gist.vim
 " Bundle: Syntastic
+" #Bundle: Gist.vim
 " Bundle: textobj-user
 " Bundle: textobj-rubyblock
 " Bundle: vim-coffee-script
