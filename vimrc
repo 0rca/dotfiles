@@ -23,8 +23,6 @@ let NERDTreeHijackNetrw=1 "from (http://vimcasts.org/blog/2013/01/oil-and-vinega
 map <Leader>n :NERDTreeToggle<CR>
 
 " Bundle: camelcasemotion
-" Bundle: textobj-user
-" Bundle: textobj-rubyblock
 " Bundle: vim-coffee-script
 " Bundle: ZoomWin
 " Bundle: ledger.vim
@@ -34,6 +32,16 @@ map <Leader>n :NERDTreeToggle<CR>
 
 " GitHub bundles
 "
+" Install rubyblock textobj
+"
+" Bundle: kana/vim-textobj-user
+" Bundle: nelstrom/vim-textobj-rubyblock
+runtime macros/matchit.vim
+set nocompatible
+if has("autocmd")
+  filetype indent plugin on
+endif
+
 " Bundle: scrooloose/syntastic
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
