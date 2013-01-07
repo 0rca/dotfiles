@@ -58,6 +58,7 @@ let g:Powerline_symbols = 'fancy'
 " non github repos
 "
 " Bundle: git://git.wincent.com/command-t.git
+" BundleCommand: /usr/bin/rake make
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
