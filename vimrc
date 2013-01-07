@@ -30,7 +30,6 @@ map <Leader>n :NERDTreeToggle<CR>
 " Bundle: ack.vim
 " Bundle: apidock.vim
 
-" GitHub bundles
 "
 " Install rubyblock textobj
 "
@@ -64,7 +63,7 @@ let g:Powerline_symbols = 'fancy'
 " Bundle: briandoll/change-inside-surroundings.vim
 " Bundle: claco/jasmine.vim
 
-" non github repos
+" Command-T
 "
 " Bundle: git://git.wincent.com/command-t.git
 " BundleCommand: /usr/bin/rake make
@@ -76,9 +75,6 @@ let g:CommandTMaxHeight=25
 "
 " Bundle: github-theme
 " Bundle: Railscasts-Theme-GUIand256color
-
-
-filetype plugin indent on     " required!
 
 let g:macvim_hig_shift_movement=1
 set guifont=DejaVu\ Sans\ Mono:h16
@@ -101,8 +97,6 @@ set mousemodel=popup
 " Backups
 " ---------------
 set backup
-set backupdir=~/.vim.local/backup
-set directory=~/.vim.local/tmp
 
 " ---------------
 " UI
