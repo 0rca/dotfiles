@@ -1,2 +1,6 @@
 Thorfile.thor
 lib
+
+vim/bundle
+vim/Trashed-bundles
+vim/doc
