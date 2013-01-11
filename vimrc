@@ -4,7 +4,6 @@ set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
 
-
 " ---------------
 " Leader
 " ---------------
@@ -17,16 +16,15 @@ let mapleader=","
 " Bundle: tComment
 map <silent><D-/> :TComment<CR>
 
-
-" Bundle: The-NERD-tree
-let NERDTreeHijackNetrw=1 "from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
+" from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
+let NERDTreeHijackNetrw=1
 map <Leader>n :NERDTreeToggle<CR>
 
+"
+" vim-scripts GitHub repo
+"
 " Bundle: camelcasemotion
-" Bundle: vim-coffee-script
 " Bundle: ZoomWin
-" Bundle: ledger.vim
-" Bundle: ledger.vim-indent
 " Bundle: ack.vim
 " Bundle: apidock.vim
 
@@ -35,15 +33,12 @@ map <Leader>n :NERDTreeToggle<CR>
 "
 " Bundle: kana/vim-textobj-user
 " Bundle: nelstrom/vim-textobj-rubyblock
-runtime macros/matchit.vim
 set nocompatible
-if has("autocmd")
-  filetype indent plugin on
-endif
 
 " Bundle: scrooloose/syntastic
+" Bundle: scrooloose/nerdtree
 
-" Bundle: tpope/vim-sensible master # sensible Vim defaults
+" Bundle: tpope/vim-sensible
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
 " Bundle: tpope/vim-bundler
@@ -54,8 +49,11 @@ endif
 " Bundle: tpope/vim-repeat
 " Bundle: tpope/vim-abolish
 " Bundle: tpope/vim-endwise
+" Bundle: kchmck/vim-coffee-script
+" Bundle: ledger/vim-ledger
 " Bundle: Lokaltog/vim-easymotion
 " Bundle: Lokaltog/vim-powerline develop
+
 let g:Powerline_symbols = 'fancy'
 
 " Bundle: Shougo/neocomplcache
@@ -77,12 +75,12 @@ let g:CommandTMaxHeight=25
 " Bundle: Railscasts-Theme-GUIand256color
 
 let g:macvim_hig_shift_movement=1
-set guifont=DejaVu\ Sans\ Mono:h16
-set guioptions-=T
 
 
 if has('gui_running')
   colorscheme github
+  set guifont=DejaVu\ Sans\ Mono:h16
+  set guioptions-=T
 else
   colorscheme railscasts
 endif
@@ -94,44 +92,29 @@ set keymodel=startsel
 set mousemodel=popup
 
 " ---------------
-" Backups
-" ---------------
-set backup
-
-" ---------------
 " UI
 " ---------------
-set ruler  " Ruler on
 set nu  " Line numbers on
 set nowrap  " Line wrapping off
-set laststatus=2  " Always show the statusline
 set cmdheight=2
 
 " ---------------
 " Behaviors
 " ---------------
-syntax enable
-set autoread           " Automatically reload changes if detected
-set wildmenu           " Turn on WiLd menu
 set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
 set clipboard+=unnamed " Yanks go on clipboard instead.
-set autowrite          " Writes on make/shell commands
 set timeoutlen=250     " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
 set formatoptions=crql
-set scrolloff=3               "more context around the cursor
 
 " ---------------
 " Text Format
 " ---------------
 set tabstop=2
-set backspace=2 " Delete everything with backspace
 set shiftwidth=2  " Tabs under smart indent
 set cindent
-set autoindent
-set smarttab
 set expandtab
 set backspace=2
 
@@ -139,14 +122,11 @@ set backspace=2
 " Searching
 " ---------------
 set ignorecase " Case insensitive search
-set smartcase " Non-case sensitive search
-set incsearch
 set hlsearch
 
 " ---------------
 " Visual
 " ---------------
-set showmatch  " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
 
 " ---------------
@@ -154,16 +134,12 @@ set matchtime=2 " How many tenths of a second to blink
 " ---------------
 set noerrorbells
 set novisualbell
-set t_vb=
 
 " ---------------
 " Mouse
 " ---------------
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
-
-" Better complete options to speed it up
-set complete=.,w,b,u,U
 
 " Window Movement
 nmap <silent> <C-h> :wincmd h<CR>
@@ -174,7 +150,6 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
-
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
@@ -221,15 +196,6 @@ map <D-S-Left> gT
 
 " remap ZoomWin
 map <Leader><Leader> :ZoomWin<CR>
-
-" redundant whitespace highlighing
-highlight ExtraWhitespace ctermbg=grey guibg=grey
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
 
 if !empty($MY_RUBY_HOME)
   let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/vendor_ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/user-gems/*.*'),"\n"),',')
