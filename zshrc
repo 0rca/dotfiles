@@ -11,8 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export ANDROID_HOME=$HOME/code/android/sdk
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
