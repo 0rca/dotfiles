@@ -48,10 +48,10 @@ alias ls='ls -F --color'
 alias ll='ls -F --color -l'
 alias la='ls -F --color -la'
 
-alias el='mvim ~/.money.ledger'
+alias el='vim ~/.money.ledger'
 alias lr='ledger'
 
-alias ef='mvim ~/.fragm.ledger'
+alias ef='vim ~/.fragm.ledger'
 alias fr='ledger -f ~/.fragm.ledger'
 
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
