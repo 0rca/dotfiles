@@ -7,7 +7,7 @@ class Dotfile
 
   def initialize(name)
     @name = name
-    @dotdir = `pwd`.chomp
+    @dotdir = File.expand_path("..",__FILE__)
   end
 
   def dest_file
@@ -61,6 +61,10 @@ end
 task :test do
   puts "home: " +   ENV['HOME']
   vim = Dotfile.new("vim")
+end
+
+task :nothing do
+  Dotfile.new("nofile")
 end
 
 def dotfiles
