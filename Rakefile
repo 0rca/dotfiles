@@ -35,15 +35,8 @@ class Dotfile
   end
 end
 
-task :undotify do
-  files = Dir.glob(".*") - %w(. .. .git .gitmodules)
-  files.each do |file|
-    File.rename file, file[1..-1]
-  end
-end
-
 task :unlink do
-  files = Dir.glob("*")
+  files = FileList["*"]
   files.each do |file|
     dotfile = Dotfile.new(file)
     dotfile.unlink
