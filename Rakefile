@@ -1,4 +1,4 @@
-NODOTFILES = %w(. .. .git .gitmodules README.md Rakefile LS_COLORS).freeze
+NODOTFILES = %w(. .. .git .gitmodules README.md Rakefile LS_COLORS vim).freeze
 
 class Dotfile
   def name
