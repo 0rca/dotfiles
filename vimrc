@@ -53,6 +53,7 @@ set nocompatible
 " Bundle: ledger/vim-ledger
 " Bundle: Lokaltog/vim-easymotion
 " Bundle: Lokaltog/vim-powerline develop
+" Bundle: MarcWeber/vim-addon-local-vimrc
 
 let g:Powerline_symbols = 'fancy'
 
