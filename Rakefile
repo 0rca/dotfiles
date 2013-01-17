@@ -74,7 +74,7 @@ task :ignore, [:file] do |t,args|
   system "echo #{args.file} >> #{Dotfile::DOTIGNORE}"
 end
 
-desc "Install submodules"
+desc "Update submodules"
 task :submodules => [:mod_ls_colors,:mod_pathogen]
 
 task :mod_ls_colors do
@@ -85,4 +85,14 @@ end
 task :mod_pathogen do
   system "curl -So vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+end
+
+desc "Install/Remove vim bundles"
+task :vim_install do
+  system "/usr/bin/env vim-update-bundles -n"
+end
+
+desc "Update vim bundles"
+task :vim_update do
+  system "/usr/bin/env vim-update-bundles"
 end
