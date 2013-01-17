@@ -75,8 +75,14 @@ task :ignore, [:file] do |t,args|
 end
 
 desc "Install submodules"
-task :submodules => [:mod_ls_colors]
+task :submodules => [:mod_ls_colors,:mod_pathogen]
 
 task :mod_ls_colors do
-  system "wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O dircolors"
+  system "curl -So dircolors \
+    https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS"
+end
+
+task :mod_pathogen do
+  system "curl -So vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
 end
