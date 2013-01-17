@@ -100,7 +100,7 @@ end
 task :script do
   File.open('install.sh','w') do |script|
     Dotfile.each do |f|
-      script.puts %Q(ls -s `pwd`/#{f} $HOME/.#{f})
+      script.puts %Q(ln -s `pwd`/#{f} $HOME/.#{f})
     end
   end
 end
