@@ -7,8 +7,12 @@ class Dotfile
     @name = name
   end
 
+  def homedir
+    ENV['HOME']
+  end
+
   def dest_file
-    @dest_file ||= "#{ENV['HOME']}/.#{@name}"
+    @dest_file ||= "#{homedir}/.#{@name}"
   end
 
   def backup
@@ -37,14 +41,16 @@ class Dotfile
   end
 
   def self.each(&block)
-    @@dotfiles.each {|f| yield f }
+    @@dotfiles.each(&block)
   end
 end
 
+desc "Unlink dotfiles from home directory"
 task :unlink do
   Dotfile.each { |file| Dotfile.new(file).unlink }
 end
 
+desc "Link dotfiles to home directory"
 task :link do
   Dotfile.each { |file| Dotfile.new(file).backup.link }
 end
