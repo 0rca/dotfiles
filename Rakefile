@@ -22,7 +22,11 @@ class Dotfile
   end
 
   def backup
-    File.rename( dest_file, dest_file + ".bak" ) if File.exists?(dest_file)
+    if File.symlink?(dest_file)
+      File.unlink(dest_file)
+    else
+      File.rename( dest_file, dest_file + ".bak" ) if File.exists?(dest_file)
+    end
     self
   end
 
@@ -61,10 +65,18 @@ task :link do
   Dotfile.each { |file| Dotfile.new(file).backup.link }
 end
 
+desc "List currently managed dotfiles"
 task :list do
   Dotfile.each {|f| puts f }
 end
 
 task :ignore, [:file] do |t,args|
   system "echo #{args.file} >> #{Dotfile::DOTIGNORE}"
+end
+
+desc "Install submodules"
+task :submodules => [:mod_ls_colors]
+
+task :mod_ls_colors do
+  system "wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O dircolors"
 end

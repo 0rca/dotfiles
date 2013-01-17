@@ -18,9 +18,7 @@ export NODE_PATH=/usr/local/lib/node_modules
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
 
+eval $(dircolors -b $HOME/.dircolors)
+
 source $HOME/.zshrc.local
 
-# enable zmv command
-autoload zmv
-
-eval $(dircolors -b $HOME/.dotify/LS_COLORS/LS_COLORS)
