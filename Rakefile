@@ -96,3 +96,11 @@ desc "Update vim bundles"
 task :vim_update do
   system "/usr/bin/env vim-update-bundles"
 end
+
+task :script do
+  File.open('install.sh','w') do |script|
+    Dotfile.each do |f|
+      script.puts %Q(ls -s `pwd`/#{f} $HOME/.#{f})
+    end
+  end
+end
