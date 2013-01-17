@@ -1,7 +1,13 @@
 class Dotfile
+  DOTIGNORE = '.dotignore'
 
   @@dotdir   ||= File.expand_path( "..", __FILE__ )
-  @@dotfiles ||= FileList["*"] - %w(. .. .git .gitmodules README.md Rakefile LS_COLORS vim Gemfile Gemfile.lock)
+  @@dotignore ||= %w[ .git .gitmodules ]
+  if File.exists?(DOTIGNORE)
+    @@dotignore += File.read(DOTIGNORE).split("\n")
+  end
+
+  @@dotfiles ||= FileList["*"] - @@dotignore
 
   def initialize(name)
     @name = name
@@ -55,4 +61,10 @@ task :link do
   Dotfile.each { |file| Dotfile.new(file).backup.link }
 end
 
+task :list do
+  Dotfile.each {|f| puts f }
+end
 
+task :ignore, [:file] do |t,args|
+  system "echo #{args.file} >> #{Dotfile::DOTIGNORE}"
+end
