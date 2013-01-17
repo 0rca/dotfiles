@@ -1,7 +1,7 @@
 class Dotfile
 
   @@dotdir   ||= File.expand_path( "..", __FILE__ )
-  @@dotfiles ||= FileList["*"] - %w(. .. .git .gitmodules README.md Rakefile LS_COLORS vim)
+  @@dotfiles ||= FileList["*"] - %w(. .. .git .gitmodules README.md Rakefile LS_COLORS vim Gemfile Gemfile.lock)
 
   def initialize(name)
     @name = name
