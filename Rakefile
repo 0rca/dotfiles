@@ -70,12 +70,8 @@ task :list do
   Dotfile.each {|f| puts f }
 end
 
-task :ignore, [:file] do |t,args|
-  system "echo #{args.file} >> #{Dotfile::DOTIGNORE}"
-end
-
 desc "Update submodules"
-task :submodules => [:mod_ls_colors,:mod_pathogen]
+task :submodules => [:mod_ls_colors,:mod_pathogen,:mod_zprezto]
 
 task :mod_ls_colors do
   system "curl -So dircolors \
@@ -85,6 +81,13 @@ end
 task :mod_pathogen do
   system "curl -So vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+end
+
+task :mod_zprezto do
+  unless File.exists?('zprezto')
+    system "git clone --recursive https://github.com/sorin-ionescu/prezto.git \
+      zprezto"
+  end
 end
 
 desc "Install/Remove vim bundles"
