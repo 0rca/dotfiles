@@ -44,8 +44,8 @@ export MY_RUBY_HOME=/usr
 
 alias lss='du -sh * |sort -hr'
 alias ls='ls -F --color'
-alias ll='ls -F --color -l'
-alias la='ls -F --color -la'
+alias ll='ls -F --color -hl'
+alias la='ls -F --color -hla'
 
 alias el='vim ~/.money.ledger'
 alias lr='ledger'
