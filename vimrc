@@ -54,6 +54,7 @@ set nocompatible
 " Bundle: Lokaltog/vim-easymotion
 " Bundle: Lokaltog/vim-powerline develop
 " Bundle: MarcWeber/vim-addon-local-vimrc
+" Bundle: guns/vim-clojure-static
 
 let g:Powerline_symbols = 'fancy'
 
