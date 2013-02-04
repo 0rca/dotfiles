@@ -1,3 +1,5 @@
+alias v='bundle exec vagrant'
+alias pserv='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
 alias bx='bundle exec'
 alias g='git status'
