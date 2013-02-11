@@ -27,6 +27,7 @@ map <Leader>n :NERDTreeToggle<CR>
 " Bundle: ZoomWin
 " Bundle: ack.vim
 " Bundle: apidock.vim
+" Bundle: Rainbow-Parentheses-Improved-and2
 
 "
 " Install rubyblock textobj
