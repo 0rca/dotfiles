@@ -11,34 +11,25 @@ filetype off                   " required!
 " Set leader to ,
 let mapleader=","
 
-" My Bundles here:
+"
+" github/vim-scripts
 "
 " Bundle: tComment
-map <silent><D-/> :TComment<CR>
-
-" from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
-let NERDTreeHijackNetrw=1
-map <Leader>n :NERDTreeToggle<CR>
-
-"
-" vim-scripts GitHub repo
-"
 " Bundle: camelcasemotion
 " Bundle: ZoomWin
 " Bundle: ack.vim
 " Bundle: apidock.vim
 " Bundle: Rainbow-Parentheses-Improved-and2
+" Bundle: github-theme
+" Bundle: Railscasts-Theme-GUIand256color
 
 "
-" Install rubyblock textobj
+" GitHub
 "
 " Bundle: kana/vim-textobj-user
 " Bundle: nelstrom/vim-textobj-rubyblock
-set nocompatible
-
 " Bundle: scrooloose/syntastic
 " Bundle: scrooloose/nerdtree
-
 " Bundle: tpope/vim-sensible
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
@@ -56,28 +47,25 @@ set nocompatible
 " Bundle: Lokaltog/vim-powerline develop
 " Bundle: MarcWeber/vim-addon-local-vimrc
 " Bundle: guns/vim-clojure-static
-
-let g:Powerline_symbols = 'fancy'
-
+" Bundle: wlangstroth/vim-haskell
 " Bundle: Shougo/neocomplcache
 " Bundle: ervandew/supertab
 " Bundle: briandoll/change-inside-surroundings.vim
 " Bundle: claco/jasmine.vim
-
-" Command-T
-"
 " Bundle: git://git.wincent.com/command-t.git
 " BundleCommand: /usr/bin/rake make
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
-
-" colorschemes
-"
-" Bundle: github-theme
-" Bundle: Railscasts-Theme-GUIand256color
-
+let g:Powerline_symbols = 'fancy'
 let g:macvim_hig_shift_movement=1
+map <silent><D-/> :TComment<CR>
+" let g:rainbow_active = 1
+" let g:rainbow_operators = 1
+
+" from (http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/)
+let NERDTreeHijackNetrw=1
+map <Leader>n :NERDTreeToggle<CR>
 
 
 if has('gui_running')
