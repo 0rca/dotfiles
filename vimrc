@@ -54,6 +54,7 @@ let mapleader=","
 " Bundle: claco/jasmine.vim
 " Bundle: git://git.wincent.com/command-t.git
 " BundleCommand: /usr/bin/rake make
+" Bundle: sjl/gundo.vim
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
