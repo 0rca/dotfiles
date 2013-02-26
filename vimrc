@@ -1,8 +1,10 @@
-call pathogen#infect()
-
 set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
+
+call pathogen#infect()
+syntax on
+filetype plugin indent on
 
 " ---------------
 " Leader
