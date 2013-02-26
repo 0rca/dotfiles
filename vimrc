@@ -57,6 +57,8 @@ let mapleader=","
 " Bundle: git://git.wincent.com/command-t.git
 " BundleCommand: /usr/bin/rake make
 " Bundle: sjl/gundo.vim
+" Bundle: mattn/webapi-vim
+" Bundle: mattn/gist-vim
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
@@ -172,6 +174,9 @@ if has("autocmd")
   autocmd BufWritePre * :%s/\s\+$//e
   autocmd BufNewFile,BufRead *.ldg,*.ledger  setf ledger
   autocmd BufNewFile,BufRead *.md  set filetype=markdown
+
+  " because Apple Sandbox configs are LISP! ^__^
+  autocmd BufRead *.sb             setf lisp
 endif
 
 " remap CMD+N tab switching
@@ -194,3 +199,4 @@ map <Leader><Leader> :ZoomWin<CR>
 if !empty($MY_RUBY_HOME)
   let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/vendor_ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/user-gems/*.*'),"\n"),',')
 endif
+
