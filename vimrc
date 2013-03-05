@@ -60,6 +60,8 @@ let mapleader=","
 " Bundle: sjl/gundo.vim
 " Bundle: mattn/webapi-vim
 " Bundle: mattn/gist-vim
+" Bundle: sjl/vitality.vim
+
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
