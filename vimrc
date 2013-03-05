@@ -69,7 +69,7 @@ let mapleader=","
 
 map <silent><D-t> :CommandT<CR>
 let g:CommandTMaxHeight=25
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
 let g:macvim_hig_shift_movement=1
 map <silent><D-/> :TComment<CR>
 " let g:rainbow_active = 1
