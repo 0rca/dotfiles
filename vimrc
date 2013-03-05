@@ -81,8 +81,9 @@ map <Leader>n :NERDTreeToggle<CR>
 
 if has('gui_running')
   colorscheme github
-  set guifont=DejaVu\ Sans\ Mono:h16
+  set guifont=Consolas:h12
   set guioptions-=T
+  set linespace=2
 else
   colorscheme railscasts
 endif
