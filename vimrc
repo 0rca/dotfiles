@@ -180,6 +180,7 @@ if has("autocmd")
 
   " because Apple Sandbox configs are LISP! ^__^
   autocmd BufRead *.sb             setf lisp
+  autocmd BufNewFile,BufRead *.clj  call rainbow#activate()
 endif
 
 " remap CMD+N tab switching
