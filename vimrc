@@ -205,3 +205,4 @@ if !empty($MY_RUBY_HOME)
   let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/vendor_ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/user-gems/*.*'),"\n"),',')
 endif
 
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
