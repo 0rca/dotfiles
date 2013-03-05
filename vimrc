@@ -64,6 +64,7 @@ let mapleader=","
 " Bundle: sjl/vitality.vim
 " Bundle: grillpanda/github-colorscheme
 " Bundle: xolox/vim-reload
+" Bundle: vim-ruby/vim-ruby
 
 
 map <silent><D-t> :CommandT<CR>
