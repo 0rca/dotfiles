@@ -63,6 +63,7 @@ let mapleader=","
 " Bundle: mattn/gist-vim
 " Bundle: sjl/vitality.vim
 " Bundle: grillpanda/github-colorscheme
+" Bundle: xolox/vim-reload
 
 
 map <silent><D-t> :CommandT<CR>
