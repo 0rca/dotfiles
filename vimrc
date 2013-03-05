@@ -22,7 +22,6 @@ let mapleader=","
 " Bundle: ack.vim
 " Bundle: apidock.vim
 " Bundle: Rainbow-Parentheses-Improved-and2
-" Bundle: github-theme
 " Bundle: Railscasts-Theme-GUIand256color
 
 "
@@ -61,6 +60,7 @@ let mapleader=","
 " Bundle: mattn/webapi-vim
 " Bundle: mattn/gist-vim
 " Bundle: sjl/vitality.vim
+" Bundle: grillpanda/github-colorscheme
 
 
 map <silent><D-t> :CommandT<CR>
