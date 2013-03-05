@@ -44,6 +44,7 @@ let mapleader=","
 " Bundle: tpope/vim-endwise
 " Bundle: tpope/vim-foreplay
 " Bundle: tpope/vim-classpath
+" Bundle: tpope/vim-scriptease
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
 " Bundle: Lokaltog/vim-easymotion
