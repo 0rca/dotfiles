@@ -43,6 +43,7 @@ let mapleader=","
 " Bundle: tpope/vim-repeat
 " Bundle: tpope/vim-abolish
 " Bundle: tpope/vim-endwise
+" Bundle: tpope/vim-foreplay
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
 " Bundle: Lokaltog/vim-easymotion
