@@ -1,3 +1,6 @@
+alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
+alias T='t -f'
+
 alias v='bundle exec vagrant'
 alias pserv='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
@@ -18,6 +21,7 @@ alias o='open'
 
 alias rst='touch tmp/restart.txt'
 alias reload='source ~/.zshrc'
+alias reloadl='source ~/.zshrc.local'
 
 alias ec='vim ~/.lein/profiles.clj'
 alias ea='vim ~/.zshrc.local'
