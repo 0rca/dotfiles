@@ -2,3 +2,7 @@ home/.vim/bundle
 home/.vim/Trashed-bundles
 home/.vim/doc
 home/.zprezto
+home/.lein/bin
+home/.lein/indices
+home/.lein/self-installs
+home/.lein/repl-history
