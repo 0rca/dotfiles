@@ -12,6 +12,8 @@ alias gp='git pull'
 alias gb='git branch'
 alias gc='git commit'
 alias gca='git commit -a'
+alias git='hub'
+
 alias o='open'
 
 # path shortcuts
@@ -27,6 +29,7 @@ alias ea='vim ~/.zshrc.local'
 alias ev='vim ~/.vimrc'
 alias mev='mvim ~/.vimrc'
 alias ez='vim ~/.zshrc'
+alias eg='vim ~/.rbenv/default-gems'
 
 alias p='powify'
 
