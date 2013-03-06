@@ -1,4 +1,4 @@
-vim/bundle
-vim/Trashed-bundles
-vim/doc
-zprezto
+home/.vim/bundle
+home/.vim/Trashed-bundles
+home/.vim/doc
+home/.zprezto
