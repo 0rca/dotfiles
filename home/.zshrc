@@ -18,6 +18,8 @@ export NODE_PATH=/usr/local/lib/node_modules
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
 
+eval "$($HOME/code/av/bin/av init -)"
+
 eval $(dircolors -b $HOME/.dircolors)
 
 source $HOME/.zshrc.local
