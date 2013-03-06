@@ -1,3 +1,5 @@
+alias qw='qw -e mvim'
+
 alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
 alias T='t -f'
 
