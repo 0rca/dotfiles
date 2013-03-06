@@ -1,9 +1,8 @@
-alias ec='vim ~/.lein/profiles.clj'
-alias gff='git merge --ff-only'
 alias v='bundle exec vagrant'
 alias pserv='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
 alias bx='bundle exec'
+
 alias g='git status'
 alias gco='git checkout'
 alias gd='git diff'
@@ -12,22 +11,17 @@ alias gp='git pull'
 alias gb='git branch'
 alias gc='git commit'
 alias gca='git commit -a'
+alias gff='git merge --ff-only'
 alias git='hub'
 
 alias o='open'
 
-# path shortcuts
-alias cdp='cd ~/code/kabisa/portal'
-alias cdv='cd ~/code/kabisa/viaviela'
-alias cdn='cd ~/code/github/netzke-basepack'
-alias cdc='cd ~/code/'
-
 alias rst='touch tmp/restart.txt'
 alias reload='source ~/.zshrc'
 
+alias ec='vim ~/.lein/profiles.clj'
 alias ea='vim ~/.zshrc.local'
 alias ev='vim ~/.vimrc'
-alias mev='mvim ~/.vimrc'
 alias ez='vim ~/.zshrc'
 alias eg='vim ~/.rbenv/default-gems'
 
@@ -37,11 +31,10 @@ alias tailf='tail -f'
 
 alias rc="bundle exec rails console"
 
-export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2"
+export EDITOR="mvim"
 
 # VI keybindings
 # set -o vi
-
 
 alias darkstat-up="sudo darkstat -i en1 -b 127.0.0.1 --no-macs --chroot /var/run/darkstat --pidfile darkstat.pid"
 alias darkstat-down="sudo kill \`sudo cat /var/run/darkstat/darkstat.pid\`; sudo rm /var/run/darkstat/darkstat.pid"
