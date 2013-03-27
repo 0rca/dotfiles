@@ -1,9 +1,15 @@
-alias qw='qw -e mvim'
+alias -- ..='cd ..'
+alias -- ...='cd ../..'
+
+alias qw='qw -e vim'
+
+# fasd aliases
+alias v='f -e vim'
+
 
 alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
-alias T='t -f'
+alias -- -t='t -f'
 
-alias v='bundle exec vagrant'
 alias pserv='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
 alias bx='bundle exec'
@@ -16,8 +22,9 @@ alias gp='git pull'
 alias gb='git branch'
 alias gc='git commit'
 alias gca='git commit -a'
-alias gff='git merge --ff-only'
+alias gff='git merge --ff-only origin/master'
 alias git='hub'
+alias gl='git log'
 
 alias o='open'
 
@@ -25,11 +32,12 @@ alias rst='touch tmp/restart.txt'
 alias reload='source ~/.zshrc'
 alias reloadl='source ~/.zshrc.local'
 
-alias ec='vim ~/.lein/profiles.clj'
-alias ea='vim ~/.zshrc.local'
-alias ev='vim ~/.vimrc'
-alias ez='vim ~/.zshrc'
-alias eg='vim ~/.rbenv/default-gems'
+alias ee='vim --remote-tab-silent ~/.inbox.txt'
+alias ec='vim --remote-tab-silent ~/.lein/profiles.clj'
+alias ea='vim --remote-tab-silent ~/.zshrc.local'
+alias ev='vim --remote-tab-silent ~/.vimrc'
+alias ez='vim --remote-tab-silent ~/.zshrc'
+alias eg='vim --remote-tab-silent ~/.rbenv/default-gems'
 
 alias p='powify'
 
