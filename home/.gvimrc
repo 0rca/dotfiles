@@ -5,5 +5,5 @@ if has('gui_macvim')
   set keymodel=startsel
 endif
 
-" set guicursor+=n-v-c:blinkon0
+set guicursor+=n-v-c:blinkon0
 " set fullscreen

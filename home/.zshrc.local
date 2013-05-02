@@ -1,10 +1,23 @@
-alias -- ..='cd ..'
-alias -- ...='cd ../..'
-
 alias qw='qw -e vim'
 
 # fasd aliases
 alias v='f -e vim'
+
+function gh() {
+  open "https://github.com/search?q=$1&ref=commandline"
+}
+
+function dg(){
+  open "https://duckduckgo.com/?q=$1"
+}
+
+function so(){
+  open "http://stackoverflow.com/?q=$1"
+}
+
+# function fg(){
+#   # osascript -e 'activate app "MacVim.app"'
+# }
 
 
 alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
@@ -18,7 +31,7 @@ alias g='git status'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
-alias gp='git pull'
+# alias gp='git pull'
 alias gb='git branch'
 alias gc='git commit'
 alias gca='git commit -a'
@@ -31,6 +44,7 @@ alias o='open'
 alias rst='touch tmp/restart.txt'
 alias reload='source ~/.zshrc'
 alias reloadl='source ~/.zshrc.local'
+
 
 alias ee='vim --remote-tab-silent ~/.inbox.txt'
 alias ec='vim --remote-tab-silent ~/.lein/profiles.clj'
@@ -56,11 +70,7 @@ alias darkstat-rst="sudo kill -USR1 \`sudo cat /var/run/darkstat/darkstat.pid\`"
 
 export MY_RUBY_HOME=/usr
 
-
 alias lss='du -sh * |sort -hr'
-alias ls='ls -F --color'
-alias ll='ls -F --color -hl'
-alias la='ls -F --color -hlA'
 
 alias el='vim ~/.money.ledger'
 alias lr='ledger'
