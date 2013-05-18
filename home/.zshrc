@@ -12,10 +12,11 @@ fi
 
 # Customize to your needs...
 export ANDROID_HOME=$HOME/code/android/sdk
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$PATH:/usr/local/share/npm/bin
-export NODE_PATH=/usr/local/lib/node_modules
+export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export CLOJURESCRIPT_HOME=$HOME/code/clojurescript
+export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
@@ -26,3 +27,4 @@ eval $(dircolors -b $HOME/.dircolors)
 bindkey '^R' history-incremental-search-backward
 source $HOME/.zshrc.local
 
+unsetopt correct

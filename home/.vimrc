@@ -1,6 +1,7 @@
 set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
+set nobackup
 
 call pathogen#infect()
 syntax on
@@ -14,7 +15,7 @@ let mapleader=","
 "
 " Bundle: tComment
 " Bundle: camelcasemotion
-" Bundle: ZoomWin
+
 " Bundle: ack.vim
 " Bundle: apidock.vim
 " Bundle: Rainbow-Parentheses-Improved-and2
@@ -24,6 +25,7 @@ let mapleader=","
 "
 " GitHub
 "
+" Bundle: SirVer/ultisnips
 " Bundle: sunaku/vim-ruby-minitest
 " Bundle: kana/vim-textobj-user
 " Bundle: nelstrom/vim-textobj-rubyblock
@@ -71,6 +73,8 @@ let mapleader=","
 " Bundle: flazz/vim-colorschemes
 " Bundle: tjennings/git-grep-vim
 " Bundle: rking/ag.vim
+" Bundle: nono/vim-handlebars
+" Bundle: Raimondi/delimitMate
 
 " let g:Powerline_symbols = 'fancy'
 let g:macvim_hig_shift_movement=1
@@ -84,13 +88,13 @@ let g:ctrlp_max_height = 25
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-let g:ctrlp_lazy_update = 1
 
 let g:neocomplcache_enable_ignore_case = 0
 nmap ,f :CtrlPLine<CR>
 
 if has('gui_running')
-  colorscheme github
+  colorscheme solarized
+  set background=light
   set guifont=Anonymous\ Pro:h14
   set guioptions-=T
   set linespace=0
@@ -224,10 +228,6 @@ noremap <D-9> 10gt
 map <D-S-Right> gt
 map <D-S-Left> gT
 
-" remap :
-map ; :
-noremap ;; ;
-
 
 nmap <silent> ,/ :nohlsearch<CR>
 
@@ -235,11 +235,9 @@ nmap <silent> ,/ :nohlsearch<CR>
 vmap Q gq
 nmap Q gqap
 
-" remap ZoomWin
-map <Leader><Leader> :ZoomWin<CR>
 
 " remap escape insert mode
-inoremap kj <Esc>
+" inoremap kj <Esc>
 
 " https://ariejan.net/2012/03/21/from-11-34s-to-0-625s-for-opening-a-rb-file-in-vim/
 if !empty($MY_RUBY_HOME)
