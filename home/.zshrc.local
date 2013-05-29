@@ -20,7 +20,7 @@ function so(){
 # }
 
 
-alias t='clear; python ~/code/t/t.py --task-dir ~/tasks --list tasks'
+alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
 alias -- -t='t -f'
 
 alias pserv='python -m SimpleHTTPServer'

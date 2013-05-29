@@ -19,13 +19,13 @@ let mapleader=","
 " Bundle: ack.vim
 " Bundle: apidock.vim
 " Bundle: Rainbow-Parentheses-Improved-and2
-" Bundle: Railscasts-Theme-GUIand256color
 " Bundle: Align
 
 "
 " GitHub
 "
 " Bundle: SirVer/ultisnips
+" Bundle: JazzCore/neocomplcache-ultisnips
 " Bundle: sunaku/vim-ruby-minitest
 " Bundle: kana/vim-textobj-user
 " Bundle: nelstrom/vim-textobj-rubyblock
@@ -46,6 +46,7 @@ let mapleader=","
 " Bundle: tpope/vim-classpath
 " Bundle: tpope/vim-scriptease
 " Bundle: tpope/vim-obsession
+" Bundle: tpope/vim-ragtag
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
 " Bundle: Lokaltog/vim-easymotion
@@ -74,7 +75,12 @@ let mapleader=","
 " Bundle: tjennings/git-grep-vim
 " Bundle: rking/ag.vim
 " Bundle: nono/vim-handlebars
-" Bundle: Raimondi/delimitMate
+" -Bundle: mhinz/vim-signify
+" -Bundle: mhinz/vim-startify
+" Bundle: jszakmeister/vim-togglecursor
+
+" vim-togglecursor
+let g:togglecursor_insert='underline'
 
 " let g:Powerline_symbols = 'fancy'
 let g:macvim_hig_shift_movement=1
@@ -95,13 +101,16 @@ nmap ,f :CtrlPLine<CR>
 if has('gui_running')
   colorscheme solarized
   set background=light
-  set guifont=Anonymous\ Pro:h14
+  set guifont=Anonymous\ Pro:h16
   set guioptions-=T
   set linespace=0
 else
   colorscheme solarized
 endif
+set guicursor+=n-v-c:blinkon0
 
+" for vim-signify
+hi clear SignColumn
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
 " ----------------------------------------
@@ -237,7 +246,7 @@ nmap Q gqap
 
 
 " remap escape insert mode
-" inoremap kj <Esc>
+inoremap lk <Esc>
 
 " https://ariejan.net/2012/03/21/from-11-34s-to-0-625s-for-opening-a-rb-file-in-vim/
 if !empty($MY_RUBY_HOME)

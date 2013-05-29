@@ -3,3 +3,5 @@
 .netrwhist
 tags
 components
+*.env
+dump.rdb
