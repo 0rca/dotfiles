@@ -19,10 +19,6 @@ function so(){
   open "http://stackoverflow.com/?q=$1"
 }
 
-# function fg(){
-#   # osascript -e 'activate app "MacVim.app"'
-# }
-
 
 alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
 alias -- -t='t -f'
@@ -36,7 +32,6 @@ alias g='git status'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
-# alias gp='git pull'
 alias gb='git branch'
 alias gc='git commit'
 alias gca='git commit -a'
@@ -61,16 +56,7 @@ alias p='powify'
 
 alias tailf='tail -f'
 
-alias rc="bundle exec rails console"
-
-export EDITOR="mvim"
-
-# VI keybindings
-# set -o vi
-
-alias darkstat-up="sudo darkstat -i en1 -b 127.0.0.1 --no-macs --chroot /var/run/darkstat --pidfile darkstat.pid"
-alias darkstat-down="sudo kill \`sudo cat /var/run/darkstat/darkstat.pid\`; sudo rm /var/run/darkstat/darkstat.pid"
-alias darkstat-rst="sudo kill -USR1 \`sudo cat /var/run/darkstat/darkstat.pid\`"
+export EDITOR="vim"
 
 export MY_RUBY_HOME=/usr
 
@@ -79,11 +65,7 @@ alias lss='du -sh * |sort -hr'
 alias el='vim ~/.money.ledger'
 alias lr='ledger'
 
-alias ef='vim ~/.fragm.ledger'
-alias fr='ledger -f ~/.fragm.ledger'
-
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
-
 
 alias lrm='sudo launchctl unload -w'
 
