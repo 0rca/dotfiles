@@ -28,3 +28,7 @@ bindkey '^R' history-incremental-search-backward
 source $HOME/.zshrc.local
 
 unsetopt correct
+
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+
