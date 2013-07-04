@@ -40,7 +40,7 @@ alias gf='git fetch'
 alias gb='git branch'
 alias gc='git commit'
 alias gca='git commit -a'
-alias gff='git merge --ff-only origin/master'
+alias gff='git merge --ff-only origin/`git rev-parse --abbrev-ref HEAD`'
 alias git='hub'
 alias gl='git log'
 
