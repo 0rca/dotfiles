@@ -86,6 +86,9 @@ let g:togglecursor_insert='underline'
 " let g:Powerline_symbols = 'fancy'
 let g:macvim_hig_shift_movement=1
 
+let g:NERDTreeWinPos='right'
+let g:NERDTreeWinSize=80
+
 map <Leader>n :NERDTreeToggle<CR>
 map <silent><D-/> :TComment<CR>
 nmap <F8> :TagbarToggle<CR>
