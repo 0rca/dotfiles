@@ -93,10 +93,9 @@ map <Leader>n :NERDTreeToggle<CR>
 map <silent><D-/> :TComment<CR>
 nmap <F8> :TagbarToggle<CR>
 
-let g:ctrlp_extensions = ['line']
 let g:ctrlp_max_height = 25
 let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 let g:neocomplcache_enable_ignore_case = 0
