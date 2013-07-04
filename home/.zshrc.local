@@ -1,3 +1,7 @@
+function dash() {
+  open dash://$1
+}
+
 alias qw='qw -e vim'
 
 # fasd aliases
