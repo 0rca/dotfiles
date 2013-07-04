@@ -275,7 +275,8 @@ set foldmethod=indent
 nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
 nmap <Leader>a :GitGrep
-nmap <Leader>A :Ack
+nmap <Leader>A :Ag
+
 " disable haml checker -- it's horribly slow
 let g:loaded_syntastic_haml_haml_checker=1
 
