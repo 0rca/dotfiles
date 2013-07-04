@@ -111,6 +111,7 @@ else
   colorscheme solarized
 endif
 set guicursor+=n-v-c:blinkon0
+colorscheme lucius
 
 " for vim-signify
 hi clear SignColumn
