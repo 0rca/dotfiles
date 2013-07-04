@@ -78,6 +78,7 @@ let mapleader=","
 " -Bundle: mhinz/vim-signify
 " -Bundle: mhinz/vim-startify
 " Bundle: jszakmeister/vim-togglecursor
+" Bundle: jonathanfilip/vim-lucius
 
 " vim-togglecursor
 let g:togglecursor_insert='underline'
