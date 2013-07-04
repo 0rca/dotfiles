@@ -160,8 +160,8 @@ set backspace=2
 " ---------------
 " Searching
 " ---------------
-set ignorecase " Case insensitive search
-set hlsearch
+set noignorecase " Case insensitive search
+set nohlsearch
 
 " ---------------
 " Visual
