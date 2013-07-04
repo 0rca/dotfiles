@@ -268,7 +268,10 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Blue
+" remap layout switch
+noremap <c-l> <c-^>
 " setlocal spell spelllang=ru_yo,en_us
+
 set foldmethod=indent
 
 
