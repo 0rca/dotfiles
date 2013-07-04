@@ -32,3 +32,4 @@ unsetopt correct
 fpath=($HOME/.zsh/func $fpath)
 typeset -U fpath
 
+export MAKEFLAGS="-j 8"
