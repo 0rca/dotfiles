@@ -250,7 +250,7 @@ nmap Q gqap
 
 
 " remap escape insert mode
-inoremap lk <Esc>
+" inoremap lk <Esc>
 
 " https://ariejan.net/2012/03/21/from-11-34s-to-0-625s-for-opening-a-rb-file-in-vim/
 if !empty($MY_RUBY_HOME)
