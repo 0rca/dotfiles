@@ -276,6 +276,8 @@ nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
 nmap <Leader>a :GitGrep
 nmap <Leader>A :Ack
+" disable haml checker -- it's horribly slow
+let g:loaded_syntastic_haml_haml_checker=1
 
 nmap <C-W><C-C> <C-W>c
 
