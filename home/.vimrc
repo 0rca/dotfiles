@@ -71,7 +71,7 @@ let mapleader=","
 " Bundle: 0rca/vim-dash
 " Bundle: majutsushi/tagbar
 " Bundle: altercation/vim-colors-solarized
-" Bundle: flazz/vim-colorschemes
+" -Bundle: flazz/vim-colorschemes
 " Bundle: tjennings/git-grep-vim
 " Bundle: rking/ag.vim
 " Bundle: nono/vim-handlebars
