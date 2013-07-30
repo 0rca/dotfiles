@@ -17,6 +17,7 @@ export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export CLOJURESCRIPT_HOME=$HOME/code/clojurescript
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
+export PATH=/usr/local/heroku/bin:$PATH
 
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
@@ -29,7 +30,9 @@ source $HOME/.zshrc.local
 
 unsetopt correct
 
-fpath=($HOME/.zsh/func $fpath)
-typeset -U fpath
+# fpath=($HOME/.zsh/func $fpath)
+# typeset -U fpath
 
 export MAKEFLAGS="-j 8"
+
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt

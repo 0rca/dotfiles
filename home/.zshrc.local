@@ -1,3 +1,5 @@
+alias cleanredis='echo flushdb | redis-cli -h dory.redistogo.com -p 9120 -a ecd38a5061d070fdcd84d62d4b8b26e5'
+
 function dash() {
   open dash://$1
 }
@@ -19,6 +21,7 @@ function so(){
   open "http://stackoverflow.com/?q=$1"
 }
 
+alias va='vagrant'
 
 alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
 alias -- -t='t -f'
@@ -31,8 +34,9 @@ alias -g cb='`git rev-parse --abbrev-ref HEAD`'
 alias g='git status'
 alias gco='git checkout'
 alias gd='git diff'
+alias gp='git push'
 alias gf='git fetch'
-alias gb='git branch'
+alias gb='git branch -v'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gff='git merge --ff-only origin/`git rev-parse --abbrev-ref HEAD`'
@@ -62,10 +66,9 @@ export MY_RUBY_HOME=/usr
 
 alias lss='du -sh * |sort -hr'
 
-alias el='vim ~/.money.ledger'
+alias el='vim ~/ledger/2012.ledger'
 alias lr='ledger'
 
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 alias lrm='sudo launchctl unload -w'
-

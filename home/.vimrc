@@ -66,7 +66,7 @@ let mapleader=","
 " Bundle: grillpanda/github-colorscheme
 " Bundle: xolox/vim-reload
 " Bundle: vim-ruby/vim-ruby
-" Bundle: skwp/YankRing.vim
+" -Bundle: skwp/YankRing.vim
 " Bundle: guns/xterm-color-table.vim
 " Bundle: 0rca/vim-dash
 " Bundle: majutsushi/tagbar
@@ -79,6 +79,10 @@ let mapleader=","
 " -Bundle: mhinz/vim-startify
 " Bundle: jszakmeister/vim-togglecursor
 " Bundle: jonathanfilip/vim-lucius
+" Bundle: plasticboy/vim-markdown
+
+
+let g:vim_markdown_folding_disabled=1
 
 " vim-togglecursor
 let g:togglecursor_insert='underline'
