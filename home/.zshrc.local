@@ -1,3 +1,5 @@
+alias gus='gusteau'
+
 alias cleanredis='echo flushdb | redis-cli -h dory.redistogo.com -p 9120 -a ecd38a5061d070fdcd84d62d4b8b26e5'
 
 function dash() {

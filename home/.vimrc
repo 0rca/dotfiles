@@ -92,6 +92,10 @@ let g:macvim_hig_shift_movement=1
 
 let g:NERDTreeWinPos='right'
 let g:NERDTreeWinSize=80
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=1
 
 map <Leader>n :NERDTreeToggle<CR>
 map <silent><D-/> :TComment<CR>
@@ -289,4 +293,6 @@ nmap <c-w><c-c> <c-w>c
 " disable haml checker -- it's horribly slow
 let g:loaded_syntastic_haml_haml_checker=1
 
-
+set undodir=~/.cache/vim/undo
+set backupdir=~/.cache/vim/backup
+set directory=~/.cache/vim/swap
