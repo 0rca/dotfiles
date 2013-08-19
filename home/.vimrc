@@ -42,7 +42,7 @@ let mapleader=","
 " Bundle: tpope/vim-repeat
 " Bundle: tpope/vim-abolish
 " Bundle: tpope/vim-endwise
-" Bundle: tpope/vim-fireplace
+" -Bundle: tpope/vim-fireplace
 " Bundle: tpope/vim-classpath
 " Bundle: tpope/vim-scriptease
 " Bundle: tpope/vim-obsession
@@ -120,6 +120,7 @@ else
 endif
 set guicursor+=n-v-c:blinkon0
 colorscheme lucius
+" call SetLucius("light", "normal", "normal") | colorscheme lucius
 
 " for vim-signify
 hi clear SignColumn
@@ -168,7 +169,7 @@ set backspace=2
 " ---------------
 " Searching
 " ---------------
-set noignorecase " Case insensitive search
+set smartcase " Case insensitive search
 set nohlsearch
 
 " ---------------
@@ -215,7 +216,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.c :set cindent
 
   " No more complaining about untitled documents
-  autocmd FocusLost * silent! :wa
+  autocmd FocusLost * nested silent! wall
 
   " When editing a file, always jump to the last cursor position.
   " This must be after the uncompress commands.
@@ -294,5 +295,4 @@ nmap <c-w><c-c> <c-w>c
 let g:loaded_syntastic_haml_haml_checker=1
 
 set undodir=~/.cache/vim/undo
-set backupdir=~/.cache/vim/backup
 set directory=~/.cache/vim/swap

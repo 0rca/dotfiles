@@ -1,14 +1,14 @@
-alias gus='gusteau'
-
-alias cleanredis='echo flushdb | redis-cli -h dory.redistogo.com -p 9120 -a ecd38a5061d070fdcd84d62d4b8b26e5'
+alias tg='tugboat'
+alias gusto='gusteau'
 
 function dash() {
   open dash://$1
 }
 
+# qwandry open gem with vim
 alias qw='qw -e vim'
 
-# fasd aliases
+# fast open in vim
 alias v='f -e vim'
 
 function gh() {
@@ -25,8 +25,12 @@ function so(){
 
 alias va='vagrant'
 
-alias t='python ~/code/t/t.py --task-dir ~/tasks --list tasks'
+# Task management
+alias g='python ~/code/t/t.py --task-dir ~/ --list GAMES.txt'
+alias t='python ~/code/t/t.py --task-dir . --list TODO.txt'
 alias -- -t='t -f'
+
+alias nv='cd ~/Documents/Notational\ data/; vim .'
 
 alias pserv='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
@@ -50,7 +54,6 @@ alias o='open'
 alias rst='touch tmp/restart.txt'
 alias reload='source ~/.zshrc'
 alias reloadl='source ~/.zshrc.local'
-
 
 alias ec='vim ~/.lein/profiles.clj'
 alias ea='vim ~/.zshrc.local'
