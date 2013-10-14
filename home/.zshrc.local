@@ -1,5 +1,6 @@
 alias tg='tugboat'
 alias gusto='gusteau'
+alias gu='gusteau'
 
 function dash() {
   open dash://$1
@@ -35,6 +36,7 @@ alias nv='cd ~/Documents/Notational\ data/; vim .'
 alias pserv='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
 alias bx='bundle exec'
+alias bo='bundle open'
 
 alias -g cb='`git rev-parse --abbrev-ref HEAD`'
 alias g='git status'
@@ -42,12 +44,14 @@ alias gco='git checkout'
 alias gd='git diff'
 alias gp='git push'
 alias gf='git fetch'
+alias gfa='git fetch --all'
 alias gb='git branch -v'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gff='git merge --ff-only origin/`git rev-parse --abbrev-ref HEAD`'
 alias git='hub'
 alias gl='git log'
+alias gx='gitx'
 
 alias o='open'
 
@@ -71,9 +75,13 @@ export MY_RUBY_HOME=/usr
 
 alias lss='du -sh * |sort -hr'
 
-alias el='vim ~/ledger/2012.ledger'
+alias el='vim ~/ledger/money.ledger'
 alias lr='ledger'
 
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 alias lrm='sudo launchctl unload -w'
+
+alias pgup='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgpu='pg_ctl -D /usr/local/var/postgres stop'
+

@@ -24,6 +24,7 @@ let mapleader=","
 "
 " GitHub
 "
+" Bundle: tsaleh/vim-tmux
 " Bundle: SirVer/ultisnips
 " Bundle: JazzCore/neocomplcache-ultisnips
 " Bundle: sunaku/vim-ruby-minitest
@@ -42,7 +43,7 @@ let mapleader=","
 " Bundle: tpope/vim-repeat
 " Bundle: tpope/vim-abolish
 " Bundle: tpope/vim-endwise
-" -Bundle: tpope/vim-fireplace
+" Bundle: tpope/vim-fireplace
 " Bundle: tpope/vim-classpath
 " Bundle: tpope/vim-scriptease
 " Bundle: tpope/vim-obsession
@@ -63,7 +64,8 @@ let mapleader=","
 " Bundle: sjl/vitality.vim
 " Bundle: mattn/webapi-vim
 " Bundle: mattn/gist-vim
-" Bundle: grillpanda/github-colorscheme
+" -Bundle: grillpanda/github-colorscheme
+" Bundle: xolox/vim-misc
 " Bundle: xolox/vim-reload
 " Bundle: vim-ruby/vim-ruby
 " -Bundle: skwp/YankRing.vim
@@ -81,7 +83,6 @@ let mapleader=","
 " Bundle: jonathanfilip/vim-lucius
 " Bundle: plasticboy/vim-markdown
 
-
 let g:vim_markdown_folding_disabled=1
 
 " vim-togglecursor
@@ -98,15 +99,15 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=1
 
 map <Leader>n :NERDTreeToggle<CR>
-map <silent><D-/> :TComment<CR>
+map <silent><leader>/ :TComment<CR>
 nmap <F8> :TagbarToggle<CR>
 
 let g:ctrlp_max_height = 25
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
-let g:neocomplcache_enable_ignore_case = 0
+let g:neocomplcache_enable_fuzzy_completion = 3
 nmap ,f :CtrlPLine<CR>
 
 if has('gui_running')
@@ -170,7 +171,7 @@ set backspace=2
 " Searching
 " ---------------
 set smartcase " Case insensitive search
-set nohlsearch
+set hlsearch
 
 " ---------------
 " Visual
@@ -232,7 +233,7 @@ if has("autocmd")
   " because Apple Sandbox configs are LISP! ^__^
   autocmd BufRead *.sb             setf lisp
   autocmd BufNewFile,BufRead *.hamlc  setf haml
-  " autocmd FocusLost,Tableave * stopinsert
+  autocmd FocusLost,Tableave * stopinsert
 
 endif
 
@@ -251,7 +252,7 @@ map <D-S-Right> gt
 map <D-S-Left> gT
 
 
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <leader><leader>/ :nohlsearch<CR>
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
@@ -278,7 +279,7 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Blue
 " remap layout switch
-noremap <c-l> <c-^>
+imap <C-L> <C-^>
 " setlocal spell spelllang=ru_yo,en_us
 
 set foldmethod=indent
@@ -286,8 +287,8 @@ set foldmethod=indent
 
 nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
-nmap <Leader>a :GitGrep
-nmap <Leader>A :Ag
+nmap <Leader>a :Ag<space>
+nmap <Leader>A :GitGrep<space>
 
 nmap <c-w><c-c> <c-w>c
 
@@ -296,3 +297,4 @@ let g:loaded_syntastic_haml_haml_checker=1
 
 set undodir=~/.cache/vim/undo
 set directory=~/.cache/vim/swap
+
