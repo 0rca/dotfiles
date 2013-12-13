@@ -82,6 +82,7 @@ let mapleader=","
 " Bundle: jszakmeister/vim-togglecursor
 " Bundle: jonathanfilip/vim-lucius
 " Bundle: plasticboy/vim-markdown
+" Bundle: chriskempson/base16-vim
 
 let g:vim_markdown_folding_disabled=1
 
@@ -104,7 +105,7 @@ nmap <F8> :TagbarToggle<CR>
 
 let g:ctrlp_max_height = 25
 let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_clear_cache_on_exit = 1
+" let g:ctrlp_clear_cache_on_exit = 1
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 let g:neocomplcache_enable_fuzzy_completion = 3
@@ -120,7 +121,7 @@ else
   colorscheme solarized
 endif
 set guicursor+=n-v-c:blinkon0
-colorscheme lucius
+" colorscheme lucius
 " call SetLucius("light", "normal", "normal") | colorscheme lucius
 
 " for vim-signify

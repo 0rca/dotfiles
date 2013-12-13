@@ -11,13 +11,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export GOPATH=$HOME/code/go
 export ANDROID_HOME=$HOME/code/android/sdk
+export JAVA_HOME="$(/usr/libexec/java_home)"
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export CLOJURESCRIPT_HOME=$HOME/code/clojurescript
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PATH=/usr/local/heroku/bin:$PATH
+export PATH=$PATH:$GOPATH/bin
 
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
