@@ -70,7 +70,8 @@ let mapleader=","
 " Bundle: vim-ruby/vim-ruby
 " -Bundle: skwp/YankRing.vim
 " Bundle: guns/xterm-color-table.vim
-" Bundle: 0rca/vim-dash
+" Bundle: rizzatti/funcoo.vim
+" Bundle: rizzatti/dash.vim
 " Bundle: majutsushi/tagbar
 " Bundle: altercation/vim-colors-solarized
 " -Bundle: flazz/vim-colorschemes

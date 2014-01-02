@@ -13,7 +13,8 @@ fi
 # Customize to your needs...
 export GOPATH=$HOME/code/go
 export ANDROID_HOME=$HOME/code/android/sdk
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home)" # Apple default
+# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/share/npm/lib/node_modules

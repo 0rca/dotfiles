@@ -63,6 +63,8 @@ alias ev='vim ~/.vimrc'
 alias ez='vim ~/.zshrc'
 alias eg='vim ~/.rbenv/default-gems'
 
+alias lt='open ~/Applications/LightTable/LightTable.app'
+
 alias p='powify'
 
 alias tailf='tail -f'
