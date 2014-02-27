@@ -71,7 +71,7 @@ update_hg_repo() {
 }
 
 # Loop across all the files in the bundle directory.
-for file in "$HOME/.vim/bundle/*" ; do
+for file in $HOME/.vim/bundle/* ; do
     # Skip anything that isn't a directory; this is unlikely. Pathogen
     # likely frowns on non-directory children the bundle directory, anyway.
     if test ! -d "$file" ; then
@@ -98,8 +98,10 @@ for file in "$HOME/.vim/bundle/*" ; do
     # not managed by a supported
     # <abbr title="Version Control System">VCS</abbr>, just ignore it.
     if test 0 -eq "$am_i_git" ; then
+        echo Updating repo in $(pwd)
         update_git_repo
     elif test 0 -eq "$am_i_hg" ; then
+        echo Updating repo in $(pwd)
         update_hg_repo
     fi
 done
