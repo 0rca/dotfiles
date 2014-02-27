@@ -5,7 +5,6 @@ fi
 eval $(dircolors -b $HOME/.dircolors)
 
 [ -r $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-[ -r $HOME/.zshrc ] && source $HOME/.zshrc
 
 shopt -s cdspell
 
