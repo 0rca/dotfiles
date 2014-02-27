@@ -119,7 +119,7 @@ if has('gui_running')
   set guioptions-=T
   set linespace=0
 else
-  colorscheme solarized
+  silent! colorscheme solarized
 endif
 set guicursor+=n-v-c:blinkon0
 " colorscheme lucius
