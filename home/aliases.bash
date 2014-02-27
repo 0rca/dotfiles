@@ -22,15 +22,12 @@ export PATH=$PATH:$HOME/.rbenv/shims
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 export MAKEFLAGS="-j 8"
 
-eval "$($HOME/code/av/bin/av init -)"
-eval "$(fasd --init auto)"
-
-# rbenv setup
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+if which av > /dev/null; then eval "$($HOME/code/av/bin/av init -)"; fi
+if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
+unalias s
 
 
-#.zshrc.aliases
 alias tg='tugboat'
 alias gusto='gusteau'
 alias gu='gusteau'
@@ -64,7 +61,7 @@ alias t=task
 
 alias nv='cd ~/Documents/Notational\ data/; vim .'
 
-alias pserv='python -m SimpleHTTPServer'
+alias http='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
 alias bx='bundle exec'
 alias bo='bundle open'
@@ -88,39 +85,33 @@ alias gx='gitx'
 alias o='open'
 
 alias rst='touch tmp/restart.txt'
-alias reload='source ~/.zshrc'
-alias reloadl='source ~/.zshrc.local'
-alias rb='source ~/.bash_profile'
+alias reload='source ~/.bash_profile'
+alias reloada='source ~/.aliases.bash'
 
-alias ec='vim ~/.lein/profiles.clj'
-alias ea='vim ~/.zshrc.local'
-alias ev='vim ~/.vimrc'
-alias ez='vim ~/.zshrc'
-alias eg='vim ~/.rbenv/default-gems'
-alias ep='vim ~/.bash_profile'
-alias ei='vim ~/.inputrc'
+alias ec="${EDITOR} ~/.lein/profiles.clj"
+alias ea="${EDITOR} ~/.aliases.bash"
+alias ev="${EDITOR} ~/.vimrc"
+alias eg="${EDITOR} ~/.rbenv/default-gems"
+alias ep="${EDITOR} ~/.bash_profile"
+alias ei="${EDITOR} ~/.inputrc"
 
+# osx
 alias lt='open ~/Applications/LightTable/LightTable.app'
+alias el='vim ~/ledger/money.ledger'
+alias lr='ledger'
 
 alias p='powify'
-
 alias tailf='tail -f'
 
 export EDITOR="vim"
-
 export MY_RUBY_HOME=/usr
 
 alias lss='du -sh * |sort -hr'
 
-alias el='vim ~/ledger/money.ledger'
-alias lr='ledger'
 
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 alias lrm='sudo launchctl unload -w'
-
-# alias pgup='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-# alias pgpu='pg_ctl -D /usr/local/var/postgres stop'
 
 function pg-on() {
   tmux -2 new-session -d -s "postgresql"
@@ -139,5 +130,3 @@ alias vpn='while true; do ssh -N -D 127.0.0.1:1080 dorp; done'
 
 alias ls='ls --color'
 
-
-unalias s
