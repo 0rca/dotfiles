@@ -1,7 +1,8 @@
 #!/bin/sh
 
+dotfiles = $(pwd)
 cd home
 for f in *; do
-  ln -s $(pwd)/$f $HOME/.$f
+  ln -s -T $dotfiles/$f "$HOME/.$f"
 done
 
