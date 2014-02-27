@@ -4,39 +4,18 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
-export GOPATH=$HOME/code/go
-export ANDROID_HOME=$HOME/code/android/sdk
-export JAVA_HOME="$(/usr/libexec/java_home)" # Apple default
-# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-export PATH=$PATH:/usr/local/share/npm/bin
-export NODE_PATH=/usr/local/share/npm/lib/node_modules
-export CLOJURESCRIPT_HOME=$HOME/code/clojurescript
-export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
-export PATH=/usr/local/heroku/bin:$PATH
-export PATH=$PATH:$GOPATH/bin
-
-# rbenv setup
-if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
-eval "$($HOME/code/av/bin/av init -)"
-eval "$(fasd --init auto)"
-eval $(dircolors -b $HOME/.dircolors)
+eval $(dircolors -b $HOME/.dircolors.256dark)
 
 bindkey '^R' history-incremental-search-backward
-source $HOME/.zshrc.local
+
+if [[ -f $HOME/.zshrc.local ]]; then
+  source $HOME/.zshrc.local
+fi
 
 unsetopt correct
-
-# fpath=($HOME/.zsh/func $fpath)
-# typeset -U fpath
-
-export MAKEFLAGS="-j 8"
-
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt

@@ -3,35 +3,30 @@ set encoding=utf-8
 filetype off                   " required!
 set nobackup
 
-call pathogen#infect()
+execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
 " Set leader to ,
 let mapleader=","
+let maplocalleader="\\"
 
-"
-" github/vim-scripts
+
+" vim-scripts
 "
 " Bundle: tComment
-" Bundle: camelcasemotion
-
 " Bundle: ack.vim
-" Bundle: apidock.vim
-" Bundle: Rainbow-Parentheses-Improved-and2
 " Bundle: Align
+" Bundle: paredit.vim
 
-"
 " GitHub
 "
-" Bundle: tsaleh/vim-tmux
+" Bundle: phongnh/vim-tmux
 " Bundle: SirVer/ultisnips
 " Bundle: JazzCore/neocomplcache-ultisnips
-" Bundle: sunaku/vim-ruby-minitest
 " Bundle: kana/vim-textobj-user
-" Bundle: nelstrom/vim-textobj-rubyblock
 " Bundle: scrooloose/syntastic
-" Bundle: scrooloose/nerdtree
+" -Bundle: scrooloose/nerdtree
 " Bundle: tpope/vim-sensible
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
@@ -47,86 +42,80 @@ let mapleader=","
 " Bundle: tpope/vim-classpath
 " Bundle: tpope/vim-scriptease
 " Bundle: tpope/vim-obsession
+" Bundle: tpope/vim-jdaddy
+" Bundle: tpope/vim-vinegar
+" Bundle: tpope/vim-tbone
+" Bundle: tpope/vim-rbenv
+" Bundle: tpope/vim-characterize
 " Bundle: tpope/vim-ragtag
+" -Bundle: tpope/vim-sexp-mappings-for-regular-people
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
-" Bundle: Lokaltog/vim-easymotion
-" Bundle: Lokaltog/vim-powerline develop
 " Bundle: guns/vim-clojure-static
+" -Bundle: guns/vim-sexp
 " Bundle: wlangstroth/vim-haskell
 " Bundle: Shougo/neocomplcache
+" Bundle: Shougo/unite.vim
+" Bundle: Shougo/vimproc.vim
+" BundleCommand: make
 " Bundle: ervandew/supertab
 " Bundle: briandoll/change-inside-surroundings.vim
-" Bundle: claco/jasmine.vim
-" Bundle: kien/ctrlp.vim
 " Bundle: sjl/gundo.vim
 " Bundle: sjl/clam.vim
 " Bundle: sjl/vitality.vim
 " Bundle: mattn/webapi-vim
 " Bundle: mattn/gist-vim
-" -Bundle: grillpanda/github-colorscheme
-" Bundle: xolox/vim-misc
-" Bundle: xolox/vim-reload
 " Bundle: vim-ruby/vim-ruby
-" -Bundle: skwp/YankRing.vim
-" Bundle: guns/xterm-color-table.vim
-" Bundle: rizzatti/funcoo.vim
-" Bundle: rizzatti/dash.vim
-" Bundle: majutsushi/tagbar
-" Bundle: altercation/vim-colors-solarized
-" -Bundle: flazz/vim-colorschemes
-" Bundle: tjennings/git-grep-vim
 " Bundle: rking/ag.vim
-" Bundle: nono/vim-handlebars
-" -Bundle: mhinz/vim-signify
-" -Bundle: mhinz/vim-startify
 " Bundle: jszakmeister/vim-togglecursor
 " Bundle: jonathanfilip/vim-lucius
 " Bundle: plasticboy/vim-markdown
 " Bundle: chriskempson/base16-vim
+" Bundle: bling/vim-airline
+" Bundle: maxbrunsfeld/vim-yankstack
+" Bundle: kien/rainbow_parentheses.vim
+" -Bundle: kien/ctrlp.vim
+" Bundle: terryma/vim-multiple-cursors
+" -Bundle: goldfeld/vim-seek
+" Bundle: wellle/targets.vim
+" Bundle: rodjek/vim-puppet
+" Bundle: cwoac/nvim
+
+let g:multi_cursor_use_default_mapping=1
+" let g:multi_cursor_next_key='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 let g:vim_markdown_folding_disabled=1
 
-" vim-togglecursor
-let g:togglecursor_insert='underline'
-
-" let g:Powerline_symbols = 'fancy'
 let g:macvim_hig_shift_movement=1
-
-let g:NERDTreeWinPos='right'
-let g:NERDTreeWinSize=80
-let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeShowHidden=1
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeDirArrows=1
 
 map <Leader>n :NERDTreeToggle<CR>
 map <silent><leader>/ :TComment<CR>
-nmap <F8> :TagbarToggle<CR>
-
-let g:ctrlp_max_height = 25
-let g:ctrlp_match_window_reversed = 0
-" let g:ctrlp_clear_cache_on_exit = 1
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 let g:neocomplcache_enable_fuzzy_completion = 3
-nmap ,f :CtrlPLine<CR>
 
 if has('gui_running')
-  colorscheme solarized
-  set background=light
-  set guifont=Anonymous\ Pro:h16
+  set guifont=Source\ Code\ Pro\ Medium:h14
   set guioptions-=T
+  set guicursor+=n-v-c:blinkon0
   set linespace=0
-else
-  silent! colorscheme solarized
 endif
-set guicursor+=n-v-c:blinkon0
-" colorscheme lucius
-" call SetLucius("light", "normal", "normal") | colorscheme lucius
 
-" for vim-signify
-hi clear SignColumn
+silent! colorscheme lucius
+set background=light
+
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
 " ----------------------------------------
@@ -157,7 +146,7 @@ set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
 set clipboard+=unnamed " Yanks go on clipboard instead.
-set timeoutlen=500     " Time to wait for a command (after leader for example)
+set timeoutlen=1000     " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
 set formatoptions=crql
 
@@ -173,7 +162,7 @@ set backspace=2
 " Searching
 " ---------------
 set smartcase " Case insensitive search
-set hlsearch
+set nohlsearch
 
 " ---------------
 " Visual
@@ -206,20 +195,16 @@ nmap <silent> <leader>v :Runtime<CR>
 
 " ----------------------------------------
 " Auto Commands
-" ----------------------------------------
-
+"
 if has("autocmd")
+  " disable auto-wrap when editing .vimrc
+  autocmd BufRead .vimrc :set formatoptions-=c
 
   " auto-wrap when editing text files
   autocmd BufRead *.txt :set formatoptions+=a
 
-  autocmd BufNewFile,BufRead * :set formatoptions-=o
-
-  " set C style indent, whatever it means
-  autocmd BufNewFile,BufRead *.c :set cindent
-
   " No more complaining about untitled documents
-  autocmd FocusLost * nested silent! wall
+  " autocmd FocusLost * nested silent! wall
 
   " When editing a file, always jump to the last cursor position.
   " This must be after the uncompress commands.
@@ -228,33 +213,23 @@ if has("autocmd")
         \   exe "normal! g`\"" |
         \ endif
 
+  " strip trailing whitespace
   autocmd BufWritePre * :%s/\s\+$//e
-  autocmd BufNewFile,BufRead *.ldg,*.ledger  setf ledger
+
+  " recognize Markdown
   autocmd BufNewFile,BufRead *.md  set filetype=markdown
 
-  " because Apple Sandbox configs are LISP! ^__^
-  autocmd BufRead *.sb             setf lisp
+  " recognize Apple sandbox files
+  autocmd BufRead *.sb             setf scheme
+
+  " recognize haml and hamlc
   autocmd BufNewFile,BufRead *.hamlc  setf haml
-  autocmd FocusLost,Tableave * stopinsert
 
+  au VimEnter * RainbowParenthesesActivate
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
 endif
-
-" remap CMD+N tab switching
-noremap <D-1> 1gt
-noremap <D-2> 2gt
-noremap <D-3> 3gt
-noremap <D-4> 4gt
-noremap <D-5> 5gt
-noremap <D-6> 6gt
-noremap <D-7> 7gt
-noremap <D-8> 8gt
-noremap <D-9> 9gt
-noremap <D-9> 10gt
-map <D-S-Right> gt
-map <D-S-Left> gT
-
-
-nmap <silent> <leader><leader>/ :nohlsearch<CR>
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
@@ -277,12 +252,12 @@ set fillchars=vert:│
 
 
 set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Blue
 " remap layout switch
 imap <C-L> <C-^>
 " setlocal spell spelllang=ru_yo,en_us
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Blue
 
 set foldmethod=indent
 
@@ -293,10 +268,52 @@ nmap <Leader>a :Ag<space>
 nmap <Leader>A :GitGrep<space>
 
 nmap <c-w><c-c> <c-w>c
+nmap <c-c><c-;> <c-w>c
 
 " disable haml checker -- it's horribly slow
 let g:loaded_syntastic_haml_haml_checker=1
 
 set undodir=~/.cache/vim/undo
 set directory=~/.cache/vim/swap
+
+
+let g:browser = 'open'
+
+function! OpenGitHub(keyword)
+  let url = 'https://github.com/'.a:keyword
+  exec '!' g:browser url '&'
+endfunction
+noremap gGH :call OpenGitHub(expand('<cWORD>'))<CR><CR>
+
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
+
+nmap <C-x>g :Gstatus<CR>
+nmap <C-x>; :
+
+let g:unite_enable_split_vertically = 1
+let g:unite_enable_short_source_names = 1
+let g:unite_enable_ignore_case = 1
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  " Overwrite settings.
+  imap <buffer> qq <Plug>(unite_exit)
+  imap <buffer> jj <Plug>(unite_insert_leave)
+  imap <buffer> kk <Plug>(unite_insert_leave)
+endfunction
+
+nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
+nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
+nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
+nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
+nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
+nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
+nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
+nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
+
+cmap qq qa
+
+autocmd BufRead .vimrc :iab <buffer> bu Bundle:
+
 

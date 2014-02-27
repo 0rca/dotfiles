@@ -6,4 +6,4 @@ if has('gui_macvim')
 endif
 
 set guicursor+=n-v-c:blinkon0
-set fullscreen
+" set fullscreen
