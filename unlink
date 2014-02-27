@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd home;
+for i in *; do
+  unlink ~/.$i;
+done

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd home
+for f in *; do
+  ln -s $(pwd)/$f $HOME/.$f
+done
+
