@@ -14,7 +14,10 @@ export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
-export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+
+if which brew > /dev/null; then
+  export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+fi
 export V8_HOME=/usr/local/Cellar/v8/3.21.17/bin
 export SPIDERMONKEY_HOME=/usr/local/Cellar/spidermonkey/1.8.5/bin
 
@@ -25,7 +28,6 @@ export MAKEFLAGS="-j 8"
 if which av > /dev/null; then eval "$($HOME/code/av/bin/av init -)"; fi
 if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
-unalias s
 
 
 alias tg='tugboat'

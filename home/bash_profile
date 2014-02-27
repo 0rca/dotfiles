@@ -1,7 +1,12 @@
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if which brew >/dev/null; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 fi
 
+if which rbenv > /dev/null; then
+  eval "$(rbenv init - --no-rehash)"
+fi
 eval $(dircolors -b $HOME/.dircolors)
 
 [ -r $HOME/.aliases.bash ] && source $HOME/.aliases.bash
@@ -9,8 +14,6 @@ eval $(dircolors -b $HOME/.dircolors)
 shopt -s cdspell
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-
-eval "$(rbenv init - --no-rehash)"
 
 ### Added by the Heroku Toolbelt (should reside in local profile)
 export PATH="/usr/local/heroku/bin:$PATH"
