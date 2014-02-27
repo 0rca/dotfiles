@@ -90,12 +90,12 @@ alias rst='touch tmp/restart.txt'
 alias reload='source ~/.bash_profile'
 alias reloada='source ~/.aliases.bash'
 
-alias ec="${EDITOR} ~/.lein/profiles.clj"
-alias ea="${EDITOR} ~/.aliases.bash"
-alias ev="${EDITOR} ~/.vimrc"
-alias eg="${EDITOR} ~/.rbenv/default-gems"
-alias ep="${EDITOR} ~/.bash_profile"
-alias ei="${EDITOR} ~/.inputrc"
+alias ec="vim ~/.lein/profiles.clj"
+alias ea="vim ~/.aliases.bash"
+alias ev="vim ~/.vimrc"
+alias eg="vim ~/.rbenv/default-gems"
+alias ep="vim ~/.bash_profile"
+alias ei="vim ~/.inputrc"
 
 # osx
 alias lt='open ~/Applications/LightTable/LightTable.app'
