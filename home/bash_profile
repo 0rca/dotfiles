@@ -11,3 +11,15 @@ shopt -s cdspell
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init - --no-rehash)"
+
+### Added by the Heroku Toolbelt (should reside in local profile)
+export PATH="/usr/local/heroku/bin:$PATH"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export BROWSER='open'
+fi
+
+export EDITOR='vim'
+export VISUAL='view'
+export PAGER='less'
+
