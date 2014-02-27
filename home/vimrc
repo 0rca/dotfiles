@@ -87,22 +87,12 @@ let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_skip_key='<C-x>'
 " let g:multi_cursor_quit_key='<Esc>'
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
-
 let g:vim_markdown_folding_disabled=1
-
 let g:macvim_hig_shift_movement=1
 
-map <Leader>n :NERDTreeToggle<CR>
-map <silent><leader>/ :TComment<CR>
+if exists("TComment")
+  map <silent><leader>/ :TComment<CR>
+endif
 
 let g:neocomplcache_enable_fuzzy_completion = 3
 
@@ -114,7 +104,7 @@ if has('gui_running')
 endif
 
 silent! colorscheme lucius
-set background=light
+set background=dark
 
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
@@ -225,6 +215,9 @@ if has("autocmd")
   " recognize haml and hamlc
   autocmd BufNewFile,BufRead *.hamlc  setf haml
 
+endif
+
+if exists("RainbowParenthesesActivate")
   au VimEnter * RainbowParenthesesActivate
   au Syntax * RainbowParenthesesLoadRound
   au Syntax * RainbowParenthesesLoadSquare
@@ -261,11 +254,18 @@ highlight lCursor guifg=NONE guibg=Blue
 
 set foldmethod=indent
 
+if exists("Clam")
+  nnoremap ! :Clam<space>
+  vnoremap ! :ClamVisual<space>
+endif
 
-nnoremap ! :Clam<space>
-vnoremap ! :ClamVisual<space>
-nmap <Leader>a :Ag<space>
-nmap <Leader>A :GitGrep<space>
+if exists("Ag")
+  nmap <Leader>a :Ag<space>
+endif
+
+if exists("GitGrep")
+  nmap <Leader>A :GitGrep<space>
+endif
 
 nmap <c-w><c-c> <c-w>c
 nmap <c-c><c-;> <c-w>c
@@ -285,6 +285,7 @@ function! OpenGitHub(keyword)
 endfunction
 noremap gGH :call OpenGitHub(expand('<cWORD>'))<CR><CR>
 
+
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
@@ -303,16 +304,16 @@ function! s:unite_my_settings()
   imap <buffer> kk <Plug>(unite_insert_leave)
 endfunction
 
-nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
-nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
-nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
-nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
-nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
-nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
-nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
-nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
-
-cmap qq qa
+if exists("Unite")
+  nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
+  nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
+  nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
+  nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
+  nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
+  nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
+  nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
+  nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
+endif
 
 autocmd BufRead .vimrc :iab <buffer> bu Bundle:
 
