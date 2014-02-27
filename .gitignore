@@ -7,3 +7,4 @@ home/lein/bin
 home/lein/indices
 home/lein/self-installs
 home/lein/repl-history
+home/cache
