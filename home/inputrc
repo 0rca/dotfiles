@@ -1,0 +1,11 @@
+set bell-style visible
+set completion-ignore-case On
+set completion-query-items 500
+set horizontal-scroll-mode On
+set mark-symlinked-directories On
+set print-completions-horizontally On
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+set visible-stats On
+
+# TAB: menu-complete
