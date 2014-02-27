@@ -1,1 +1,14 @@
-source .zshrc
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+eval $(dircolors -b $HOME/.dircolors)
+
+[ -r $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+[ -r $HOME/.zshrc ] && source $HOME/.zshrc
+
+shopt -s cdspell
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init - --no-rehash)"
