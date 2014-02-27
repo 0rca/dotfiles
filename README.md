@@ -1,4 +1,4 @@
-# Ultra-lightweight dotfiles
+# Light-weight portable dotfiles
 
 Deployable on barebone box using only `git` and `sh`.
 
@@ -21,3 +21,4 @@ although you don't need it to install the tool, either. Use
 * `git` is too much of a requiement. Use `wget` or `curl` for retrieving
   bundles
 * prevent vim from using missing bundles' functions
+
