@@ -10,3 +10,5 @@ need it to install them. See `vim-clone-bundles` script.
 # Requirements
 * git (but you probably have it installed, already)
 
+# Miscellaneous
+* uses (gthank's script)[gthank/bundle-updater] for updating vim bundles
