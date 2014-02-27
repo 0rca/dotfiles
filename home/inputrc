@@ -8,4 +8,4 @@ set show-all-if-ambiguous On
 set show-all-if-unmodified On
 set visible-stats On
 
-# TAB: menu-complete
+TAB: menu-complete

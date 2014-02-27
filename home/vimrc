@@ -80,6 +80,7 @@ let maplocalleader="\\"
 " Bundle: wellle/targets.vim
 " Bundle: rodjek/vim-puppet
 " Bundle: cwoac/nvim
+" Bundle: fmoralesc/vim-pad
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -91,16 +92,16 @@ let g:vim_markdown_folding_disabled=1
 let g:macvim_hig_shift_movement=1
 
 if exists("TComment")
-  map <silent><leader>/ :TComment<CR>
+map <silent><leader>/ :TComment<CR>
 endif
 
 let g:neocomplcache_enable_fuzzy_completion = 3
 
 if has('gui_running')
-  set guifont=Source\ Code\ Pro\ Medium:h14
-  set guioptions-=T
-  set guicursor+=n-v-c:blinkon0
-  set linespace=0
+set guifont=Source\ Code\ Pro\ Medium:h14
+set guioptions-=T
+set guicursor+=n-v-c:blinkon0
+set linespace=0
 endif
 
 silent! colorscheme lucius
@@ -177,9 +178,6 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" spell
-nmap <silent> <leader>s :set spell!<CR>
-
 " source vimrc and runtime
 nmap <silent> <leader>v :Runtime<CR>
 
@@ -187,41 +185,41 @@ nmap <silent> <leader>v :Runtime<CR>
 " Auto Commands
 "
 if has("autocmd")
-  " disable auto-wrap when editing .vimrc
-  autocmd BufRead .vimrc :set formatoptions-=c
+" disable auto-wrap when editing .vimrc
+autocmd BufRead .vimrc :set formatoptions-=c
 
-  " auto-wrap when editing text files
-  autocmd BufRead *.txt :set formatoptions+=a
+" auto-wrap when editing text files
+autocmd BufRead *.txt :set formatoptions+=a
 
-  " No more complaining about untitled documents
-  " autocmd FocusLost * nested silent! wall
+" No more complaining about untitled documents
+" autocmd FocusLost * nested silent! wall
 
-  " When editing a file, always jump to the last cursor position.
-  " This must be after the uncompress commands.
-  autocmd BufReadPost *
-        \ if line("'\"") > 1 && line ("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
+" When editing a file, always jump to the last cursor position.
+" This must be after the uncompress commands.
+autocmd BufReadPost *
+      \ if line("'\"") > 1 && line ("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
-  " strip trailing whitespace
-  autocmd BufWritePre * :%s/\s\+$//e
+" strip trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
-  " recognize Markdown
-  autocmd BufNewFile,BufRead *.md  set filetype=markdown
+" recognize Markdown
+autocmd BufNewFile,BufRead *.md  set filetype=markdown
 
-  " recognize Apple sandbox files
-  autocmd BufRead *.sb             setf scheme
+" recognize Apple sandbox files
+autocmd BufRead *.sb             setf scheme
 
-  " recognize haml and hamlc
-  autocmd BufNewFile,BufRead *.hamlc  setf haml
+" recognize haml and hamlc
+autocmd BufNewFile,BufRead *.hamlc  setf haml
 
 endif
 
 if exists("RainbowParenthesesActivate")
-  au VimEnter * RainbowParenthesesActivate
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
+au VimEnter * RainbowParenthesesActivate
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 endif
 
 " Use Q for formatting the current paragraph (or selection)
@@ -234,10 +232,10 @@ nmap Q gqap
 
 " https://ariejan.net/2012/03/21/from-11-34s-to-0-625s-for-opening-a-rb-file-in-vim/
 if !empty($MY_RUBY_HOME)
-  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n"
-    \ .glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*.*')."\n"
-    \ .glob($MY_RUBY_HOME.'/lib/ruby/vendor_ruby/*.*')."\n"
-    \ .glob($MY_RUBY_HOME.'/lib/ruby/user-gems/*.*'),"\n"),',')
+let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n"
+  \ .glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*.*')."\n"
+  \ .glob($MY_RUBY_HOME.'/lib/ruby/vendor_ruby/*.*')."\n"
+  \ .glob($MY_RUBY_HOME.'/lib/ruby/user-gems/*.*'),"\n"),',')
 endif
 
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -255,16 +253,16 @@ highlight lCursor guifg=NONE guibg=Blue
 set foldmethod=indent
 
 if exists("Clam")
-  nnoremap ! :Clam<space>
-  vnoremap ! :ClamVisual<space>
+nnoremap ! :Clam<space>
+vnoremap ! :ClamVisual<space>
 endif
 
 if exists("Ag")
-  nmap <Leader>a :Ag<space>
+nmap <Leader>a :Ag<space>
 endif
 
 if exists("GitGrep")
-  nmap <Leader>A :GitGrep<space>
+nmap <Leader>A :GitGrep<space>
 endif
 
 nmap <c-w><c-c> <c-w>c
@@ -280,8 +278,8 @@ set directory=~/.cache/vim/swap
 let g:browser = 'open'
 
 function! OpenGitHub(keyword)
-  let url = 'https://github.com/'.a:keyword
-  exec '!' g:browser url '&'
+let url = 'https://github.com/'.a:keyword
+exec '!' g:browser url '&'
 endfunction
 noremap gGH :call OpenGitHub(expand('<cWORD>'))<CR><CR>
 
@@ -298,10 +296,10 @@ let g:unite_enable_ignore_case = 1
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-  " Overwrite settings.
-  imap <buffer> qq <Plug>(unite_exit)
-  imap <buffer> jj <Plug>(unite_insert_leave)
-  imap <buffer> kk <Plug>(unite_insert_leave)
+" Overwrite settings.
+imap <buffer> qq <Plug>(unite_exit)
+imap <buffer> jj <Plug>(unite_insert_leave)
+imap <buffer> kk <Plug>(unite_insert_leave)
 endfunction
 
 if exists("Unite")
@@ -317,4 +315,7 @@ endif
 
 autocmd BufRead .vimrc :iab <buffer> bu Bundle:
 
-
+let g:pad_dir="~/Documents/Notes"
+let g:pad_open_in_split=0
+let g:pad_window_height=24
+let g:pad_read_nchars_from_files=80

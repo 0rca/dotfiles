@@ -26,3 +26,7 @@ export EDITOR='vim'
 export VISUAL='view'
 export PAGER='less'
 
+export HISTSIZE=16384
+export HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

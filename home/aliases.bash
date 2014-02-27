@@ -131,4 +131,4 @@ alias ee='emacs'
 alias vpn='while true; do ssh -N -D 127.0.0.1:1080 dorp; done'
 
 alias ls='ls --color'
-
+alias sl='ls --color'
