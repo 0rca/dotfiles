@@ -91,9 +91,7 @@ let g:multi_cursor_use_default_mapping=1
 let g:vim_markdown_folding_disabled=1
 let g:macvim_hig_shift_movement=1
 
-if exists("TComment")
 map <silent><leader>/ :TComment<CR>
-endif
 
 let g:neocomplcache_enable_fuzzy_completion = 3
 

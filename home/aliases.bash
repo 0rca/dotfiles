@@ -96,6 +96,7 @@ alias ev="vim ~/.vimrc"
 alias eg="vim ~/.rbenv/default-gems"
 alias ep="vim ~/.bash_profile"
 alias ei="vim ~/.inputrc"
+alias et='vim ~/.tmux.conf'
 
 # osx
 alias lt='open ~/Applications/LightTable/LightTable.app'
