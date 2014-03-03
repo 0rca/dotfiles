@@ -30,3 +30,9 @@ export HISTSIZE=16384
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# if [[ "$TERM" != "screen-256color" ]]
+# then
+#   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+#   exit
+# fi

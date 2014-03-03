@@ -133,3 +133,12 @@ alias vpn='while true; do ssh -N -D 127.0.0.1:1080 dorp; done'
 
 alias ls='ls --color'
 alias sl='ls --color'
+
+function ttt {
+  if ! tmux has-session -t default; then
+    tmux new-session -s default -d
+    # ...
+  fi
+
+  tmux attach -t default
+}

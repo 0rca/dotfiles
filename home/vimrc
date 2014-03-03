@@ -15,7 +15,6 @@ let maplocalleader="\\"
 " vim-scripts
 "
 " Bundle: tComment
-" Bundle: ack.vim
 " Bundle: Align
 " Bundle: paredit.vim
 
@@ -66,7 +65,6 @@ let maplocalleader="\\"
 " Bundle: mattn/webapi-vim
 " Bundle: mattn/gist-vim
 " Bundle: vim-ruby/vim-ruby
-" Bundle: rking/ag.vim
 " Bundle: jszakmeister/vim-togglecursor
 " Bundle: jonathanfilip/vim-lucius
 " Bundle: plasticboy/vim-markdown
@@ -81,6 +79,8 @@ let maplocalleader="\\"
 " Bundle: rodjek/vim-puppet
 " Bundle: cwoac/nvim
 " Bundle: fmoralesc/vim-pad
+" Bundle: dyng/ctrlsf.vim
+" Bundle: christoomey/vim-tmux-navigator
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -120,7 +120,7 @@ set nowrap  " Line wrapping on
 set linebreak "Break lines a little smarter
 set textwidth=78
 set colorcolumn=+1
-set cmdheight=2
+set cmdheight=1
 set wildmode=full
 set cursorline
 
@@ -255,10 +255,6 @@ nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
 endif
 
-if exists("Ag")
-nmap <Leader>a :Ag<space>
-endif
-
 if exists("GitGrep")
 nmap <Leader>A :GitGrep<space>
 endif
@@ -300,7 +296,6 @@ imap <buffer> jj <Plug>(unite_insert_leave)
 imap <buffer> kk <Plug>(unite_insert_leave)
 endfunction
 
-if exists("Unite")
   nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
   nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
   nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
@@ -309,7 +304,6 @@ if exists("Unite")
   nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
   nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
   nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
-endif
 
 autocmd BufRead .vimrc :iab <buffer> bu Bundle:
 

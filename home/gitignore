@@ -3,7 +3,10 @@
 .DS_Store
 .ruby-version
 .netrwhist
-tags
+/tags
 components
 *.env
 dump.rdb
+.vagrant
+.task
+
