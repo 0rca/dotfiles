@@ -97,6 +97,7 @@ alias eg="vim ~/.rbenv/default-gems"
 alias ep="vim ~/.bash_profile"
 alias ei="vim ~/.inputrc"
 alias et='vim ~/.tmux.conf'
+alias es='vim ~/.ssh/config'
 
 # osx
 alias lt='open ~/Applications/LightTable/LightTable.app'
@@ -127,7 +128,7 @@ function pg-off() {
 alias em='vim ~/.live-packs/orca-pack/init.el'
 alias emm='vim ~/.emacs-live.el'
 
-alias ee='emacs'
+alias ee='emacsclient -t'
 
 alias vpn='while true; do ssh -N -D 127.0.0.1:1080 dorp; done'
 
