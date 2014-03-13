@@ -11,15 +11,11 @@ filetype plugin indent on
 let mapleader=","
 let maplocalleader="\\"
 
-
-" vim-scripts
+" Github
 "
-" Bundle: tComment
-" Bundle: Align
-" Bundle: paredit.vim
-
-" GitHub
-"
+" Bundle: vim-scripts/tComment
+" Bundle: vim-scripts/paredit.vim
+" Bundle: vim-scripts/visualrepeat
 " Bundle: phongnh/vim-tmux
 " Bundle: SirVer/ultisnips
 " Bundle: JazzCore/neocomplcache-ultisnips
@@ -47,6 +43,10 @@ let maplocalleader="\\"
 " Bundle: tpope/vim-rbenv
 " Bundle: tpope/vim-characterize
 " Bundle: tpope/vim-ragtag
+" Bundle: tpope/vim-sleuth
+" Bundle: tpope/vim-dispatch
+" Bundle: tpope/vim-vividchalk
+" Bundle: tpope/vim-pastie
 " -Bundle: tpope/vim-sexp-mappings-for-regular-people
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
@@ -78,9 +78,11 @@ let maplocalleader="\\"
 " Bundle: wellle/targets.vim
 " Bundle: rodjek/vim-puppet
 " Bundle: cwoac/nvim
-" Bundle: fmoralesc/vim-pad
 " Bundle: dyng/ctrlsf.vim
 " Bundle: christoomey/vim-tmux-navigator
+" Bundle: junegunn/vim-easy-align
+" Bundle: airblade/vim-gitgutter
+" Bundle: sergeyklay/desert256-transparent.vim
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -102,8 +104,9 @@ set guicursor+=n-v-c:blinkon0
 set linespace=0
 endif
 
-silent! colorscheme lucius
+set t_Co=256 " 256 color mode
 set background=dark
+colorscheme lucius
 
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
@@ -250,10 +253,8 @@ highlight lCursor guifg=NONE guibg=Blue
 
 set foldmethod=indent
 
-if exists("Clam")
 nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
-endif
 
 if exists("GitGrep")
 nmap <Leader>A :GitGrep<space>
@@ -290,24 +291,48 @@ let g:unite_enable_ignore_case = 1
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-" Overwrite settings.
-imap <buffer> qq <Plug>(unite_exit)
-imap <buffer> jj <Plug>(unite_insert_leave)
-imap <buffer> kk <Plug>(unite_insert_leave)
+  " Overwrite settings.
+  imap <buffer> qq <Plug>(unite_exit)
+  imap <buffer> jj <Plug>(unite_insert_leave)
+  imap <buffer> kk <Plug>(unite_insert_leave)
 endfunction
 
-  nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
-  nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
-  nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
-  nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
-  nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
-  nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
-  nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
-  nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
+nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
+nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
+nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
+nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
+nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
+nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
+nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
+nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
 
 autocmd BufRead .vimrc :iab <buffer> bu Bundle:
 
-let g:pad_dir="~/Documents/Notes"
-let g:pad_open_in_split=0
-let g:pad_window_height=24
-let g:pad_read_nchars_from_files=80
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
+
+" Emacs/bash-like navigation/editing in command and insert modes
+noremap! <C-a>  <Home>
+noremap! <C-e>  <End>
+noremap! <C-b>  <Left>
+noremap! <C-f>  <Right>
+noremap! <C-d>  <Delete>
+noremap! <M-b>  <S-Left>
+noremap! <M-f>  <S-Right>
+noremap! <M-d>  <S-right><Delete>
+noremap! <Esc>b <S-Left>
+noremap! <Esc>f <S-Right>
+noremap! <Esc>d <S-right><Delete>
+noremap! <C-g>  <C-c>
+
+inoremap <C-k> <C-o>D
+
+autocmd FileType html call s:html_my_settings()
+function! s:html_my_settings()
+  " Close html tags automatically
+  inoremap <buffer> <lt>/ </<C-X><C-O>
+endfunction
+
