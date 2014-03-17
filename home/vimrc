@@ -83,6 +83,7 @@ let maplocalleader="\\"
 " Bundle: junegunn/vim-easy-align
 " Bundle: airblade/vim-gitgutter
 " Bundle: sergeyklay/desert256-transparent.vim
+" Bundle: rking/ag.vim
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -336,3 +337,5 @@ function! s:html_my_settings()
   inoremap <buffer> <lt>/ </<C-X><C-O>
 endfunction
 
+" always keep cursor in the middle
+set scrolloff=999
