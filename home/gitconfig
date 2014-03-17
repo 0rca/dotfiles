@@ -1,4 +1,4 @@
-# set your user tokens as enivornment variables, such as ~/.secrets
+
 # See the README for examples.
 [color]
   ui = true
@@ -96,11 +96,11 @@
   # the usual default is to push all branches
   default = tracking
 [core]
-  autocrlf = false
+  autocrlf = input
   editor = vim
   excludesfile = ~/.gitignore
   whitespace = cr-at-eol
-	eol = native
+  eol = native
 [advice]
   statusHints = false
 [diff]
@@ -112,13 +112,13 @@
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 [user]
-	email = alex.vzorov@gmail.com
-	name = Alex Vzorov
+  email = alex.vzorov@gmail.com
+  name = Alex Vzorov
 [github]
-	user = 0rca
+  user = 0rca
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
