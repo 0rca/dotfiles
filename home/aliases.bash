@@ -25,16 +25,15 @@ export PATH=$PATH:$HOME/.rbenv/shims
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 export MAKEFLAGS="-j 8"
 
-if which av > /dev/null; then eval "$($HOME/code/av/bin/av init -)"; fi
-if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
-if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
+eval "$($HOME/code/av/bin/av init -)"
+eval "$(fasd --init auto)"
+eval "$(rbenv init - --no-rehash)"
 
 
-alias tg='tugboat'
 alias gusto='gusteau'
 alias gu='gusteau'
 
-function dash() {
+function :dash() {
   open dash://$1
 }
 
@@ -53,18 +52,21 @@ function so(){
   open "http://stackoverflow.com/?q=$1"
 }
 
-alias va='vagrant'
+alias vagrant='vagrant'
 
 # Task management
 # alias g='python ~/code/t/t.py --task-dir ~/ --list GAMES.txt'
 # alias t='python ~/code/t/t.py --task-dir . --list TODO.txt'
-# alias -- -t='t -f'
+function -t(){
+  task $@ done
+}
 alias t=task
 
 alias nv='cd ~/Documents/Notational\ data/; vim .'
 
 alias http='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
+alias vun='vundle -n'
 alias bx='bundle exec'
 alias bo='bundle open'
 
@@ -88,7 +90,7 @@ alias o='open'
 
 alias rst='touch tmp/restart.txt'
 alias reload='source ~/.bash_profile'
-alias reloada='source ~/.aliases.bash'
+alias ra='source ~/.aliases.bash'
 
 alias ec="vim ~/.lein/profiles.clj"
 alias ea="vim ~/.aliases.bash"
@@ -134,12 +136,12 @@ alias vpn='while true; do ssh -N -D 127.0.0.1:1080 dorp; done'
 
 alias ls='ls --color'
 alias sl='ls --color'
+alias la='ls -a'
 
 function ttt {
-  if ! tmux has-session -t default; then
-    tmux new-session -s default -d
-    # ...
-  fi
-
-  tmux attach -t default
+  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 }
+
+
+alias ..='cd ..'
+alias ....='cd ../..'

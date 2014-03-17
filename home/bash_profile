@@ -36,3 +36,4 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 #   exit
 # fi
+#
