@@ -84,6 +84,7 @@ let maplocalleader="\\"
 " Bundle: airblade/vim-gitgutter
 " Bundle: sergeyklay/desert256-transparent.vim
 " Bundle: rking/ag.vim
+" Bundle: 0rca/vim-mikrotik
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -339,3 +340,8 @@ endfunction
 
 " always keep cursor in the middle
 set scrolloff=999
+
+
+" set rtp+=/usr/local/go/misc/vim
+" filetype plugin indent on
+" syntax on

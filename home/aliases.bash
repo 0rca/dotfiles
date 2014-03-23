@@ -119,12 +119,12 @@ export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 alias lrm='sudo launchctl unload -w'
 
-function pg-on() {
+function pg-up() {
   tmux -2 new-session -d -s "postgresql"
   # tmux new-window -t "postgres":0 -n "Server"
   tmux send-keys -t "postgresql" "postgres -D /usr/local/var/postgres" C-m
 }
-function pg-off() {
+function pg-down() {
   tmux send-keys -t "postgresql" C-c C-d
 }
 alias em='vim ~/.live-packs/orca-pack/init.el'
