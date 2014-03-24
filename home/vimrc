@@ -8,12 +8,12 @@ syntax on
 filetype plugin indent on
 
 " Set leader to ,
-let mapleader=","
-let maplocalleader="\\"
+" let mapleader=","
+" let maplocalleader="\\"
 
 " Github
 "
-" Bundle: vim-scripts/tComment
+" -Bundle: vim-scripts/tComment
 " Bundle: vim-scripts/paredit.vim
 " Bundle: vim-scripts/visualrepeat
 " Bundle: phongnh/vim-tmux
@@ -47,6 +47,7 @@ let maplocalleader="\\"
 " Bundle: tpope/vim-dispatch
 " Bundle: tpope/vim-vividchalk
 " Bundle: tpope/vim-pastie
+" Bundle: tpope/vim-commentary
 " -Bundle: tpope/vim-sexp-mappings-for-regular-people
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
@@ -95,8 +96,6 @@ let g:multi_cursor_use_default_mapping=1
 let g:vim_markdown_folding_disabled=1
 let g:macvim_hig_shift_movement=1
 
-map <silent><leader>/ :TComment<CR>
-
 let g:neocomplcache_enable_fuzzy_completion = 3
 
 if has('gui_running')
@@ -108,7 +107,7 @@ endif
 
 set t_Co=256 " 256 color mode
 set background=dark
-colorscheme lucius
+silent colorscheme base16-ocean
 
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
@@ -305,7 +304,7 @@ nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
 nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
 nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
 nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
-nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark<CR>
+nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark -start-insert<CR>
 nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
 
 autocmd BufRead .vimrc :iab <buffer> bu Bundle:
@@ -339,7 +338,7 @@ function! s:html_my_settings()
 endfunction
 
 " always keep cursor in the middle
-set scrolloff=999
+set scrolloff=5
 
 
 " set rtp+=/usr/local/go/misc/vim

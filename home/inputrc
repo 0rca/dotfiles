@@ -8,4 +8,9 @@ set show-all-if-ambiguous On
 set show-all-if-unmodified On
 set visible-stats On
 
-TAB: menu-complete
+# TAB: complete
+
+set keymap emacs
+Control-w: unix-filename-rubout
+Control-p: history-search-backward
+Control-n: history-search-forward
