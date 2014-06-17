@@ -3,17 +3,15 @@
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$PATH:/Applications/WebKit.app/Contents/Frameworks/10.9/JavaScriptCore.framework/Resources
 export JSC_HOME=/Applications/WebKit.app/Contents/Frameworks/10.9/JavaScriptCore.framework/Resources
-# export GOPATH=$HOME/code/go
+export GOPATH=$HOME/code/go
 export ANDROID_HOME=$HOME/code/android/sdk
-# export JAVA_HOME="$(/usr/libexec/java_home)"
-# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-export JAVA_HOME="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 if which brew > /dev/null; then
   export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
@@ -102,7 +100,7 @@ alias et='vim ~/.tmux.conf'
 alias es='vim ~/.ssh/config'
 
 # osx
-alias lt='open ~/Applications/LightTable/LightTable.app'
+alias lt='/Applications/LightTable/light'
 alias el='vim ~/ledger/money.ledger'
 alias lr='ledger'
 
@@ -142,6 +140,6 @@ function ttt {
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 }
 
-
 alias ..='cd ..'
 alias ....='cd ../..'
+

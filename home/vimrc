@@ -1,3 +1,4 @@
+set rtp+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
 set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
@@ -8,12 +9,12 @@ syntax on
 filetype plugin indent on
 
 " Set leader to ,
-" let mapleader=","
+let mapleader=","
 " let maplocalleader="\\"
 
 " Github
 "
-" -Bundle: vim-scripts/tComment
+" Bundle: vim-scripts/tComment
 " Bundle: vim-scripts/paredit.vim
 " Bundle: vim-scripts/visualrepeat
 " Bundle: phongnh/vim-tmux
@@ -47,13 +48,15 @@ filetype plugin indent on
 " Bundle: tpope/vim-dispatch
 " Bundle: tpope/vim-vividchalk
 " Bundle: tpope/vim-pastie
-" Bundle: tpope/vim-commentary
+" -Bundle: tpope/vim-commentary
 " -Bundle: tpope/vim-sexp-mappings-for-regular-people
+" Bundle: tpope/timl
+" Bundle: tpope/vim-leiningen
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
 " Bundle: guns/vim-clojure-static
-" -Bundle: guns/vim-sexp
-" Bundle: wlangstroth/vim-haskell
+" Bundle: guns/vim-sexp
+" -Bundle: wlangstroth/vim-haskell
 " Bundle: Shougo/neocomplcache
 " Bundle: Shougo/unite.vim
 " Bundle: Shougo/vimproc.vim
@@ -63,6 +66,7 @@ filetype plugin indent on
 " Bundle: sjl/gundo.vim
 " Bundle: sjl/clam.vim
 " Bundle: sjl/vitality.vim
+" Bundle: sjl/tslime2.vim
 " Bundle: mattn/webapi-vim
 " Bundle: mattn/gist-vim
 " Bundle: vim-ruby/vim-ruby
@@ -72,13 +76,14 @@ filetype plugin indent on
 " Bundle: chriskempson/base16-vim
 " Bundle: bling/vim-airline
 " Bundle: maxbrunsfeld/vim-yankstack
-" Bundle: kien/rainbow_parentheses.vim
+" -Bundle: kien/rainbow_parentheses.vim
+" Bundle: amdt/vim-niji
 " -Bundle: kien/ctrlp.vim
 " Bundle: terryma/vim-multiple-cursors
 " -Bundle: goldfeld/vim-seek
 " Bundle: wellle/targets.vim
 " Bundle: rodjek/vim-puppet
-" Bundle: cwoac/nvim
+" -Bundle: cwoac/nvim
 " Bundle: dyng/ctrlsf.vim
 " Bundle: christoomey/vim-tmux-navigator
 " Bundle: junegunn/vim-easy-align
@@ -86,6 +91,7 @@ filetype plugin indent on
 " Bundle: sergeyklay/desert256-transparent.vim
 " Bundle: rking/ag.vim
 " Bundle: 0rca/vim-mikrotik
+" Bundle: tfnico/vim-gradle
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -329,8 +335,6 @@ noremap! <Esc>f <S-Right>
 noremap! <Esc>d <S-right><Delete>
 noremap! <C-g>  <C-c>
 
-inoremap <C-k> <C-o>D
-
 autocmd FileType html call s:html_my_settings()
 function! s:html_my_settings()
   " Close html tags automatically
@@ -341,6 +345,7 @@ endfunction
 set scrolloff=5
 
 
-" set rtp+=/usr/local/go/misc/vim
-" filetype plugin indent on
-" syntax on
+
+set background=dark
+
+

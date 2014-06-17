@@ -1,5 +1,4 @@
 **/*.swp
-.idea
 .DS_Store
 .ruby-version
 .netrwhist
@@ -10,3 +9,4 @@ dump.rdb
 .vagrant
 .task
 
+elpa

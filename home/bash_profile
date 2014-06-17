@@ -31,9 +31,34 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+export TERM=xterm-256color
+
 # if [[ "$TERM" != "screen-256color" ]]
 # then
 #   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 #   exit
 # fi
 #
+
+# switch between Java JDKs
+# credit goes to Neeme Praks @ superuser.com
+# [http://superuser.com/questions/490425/how-do-i-switch-between-java-7-and-java-6-on-os-x-10-8-2/568016#568016]
+# Usage: setjdk 1.7 (or 1.6)
+function setjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+  echo JAVA_HOME set to $JAVA_HOME
+  java -version
+ }
+ function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+ }
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/orca/.gvm/bin/gvm-init.sh" ]] && source "/Users/orca/.gvm/bin/gvm-init.sh"
