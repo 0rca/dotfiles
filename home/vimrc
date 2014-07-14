@@ -200,7 +200,7 @@ autocmd BufRead .vimrc :set formatoptions-=c
 autocmd BufRead *.txt :set formatoptions+=a
 
 " No more complaining about untitled documents
-" autocmd FocusLost * nested silent! wall
+autocmd FocusLost * nested silent! wall
 
 " When editing a file, always jump to the last cursor position.
 " This must be after the uncompress commands.

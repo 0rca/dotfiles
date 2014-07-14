@@ -130,7 +130,7 @@ alias emm='vim ~/.emacs-live.el'
 
 alias ee='emacsclient -t'
 
-alias vpn='while true; do ssh -N -D 127.0.0.1:1080 dorp; done'
+alias vpn='while true; do ssh -N -D 127.0.0.1:1080 wiki; done'
 
 alias ls='ls --color'
 alias sl='ls --color'
@@ -143,3 +143,4 @@ function ttt {
 alias ..='cd ..'
 alias ....='cd ../..'
 
+alias rmrf='rm -rf'
