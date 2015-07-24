@@ -1,28 +1,47 @@
+if &term =~ '256color'
+  " disable Background Color Erase (BCE)
+  set t_ut=
+endif
+
+" let base16colorspace=256  " Access colors present in 256 colorspace
+
 set rtp+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
 set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
 set nobackup
-
 execute pathogen#infect()
 syntax on
-filetype plugin indent on
+runtime macros/matchit.vim
+
+if has("autocmd")
+  filetype plugin indent on
+endif
 
 " Set leader to ,
 let mapleader=","
 " let maplocalleader="\\"
 
-" Github
-"
+" Bundle: kana/vim-textobj-user
+" Bundle: Julian/vim-textobj-variable-segment
+" Bundle: tek/vim-textobj-ruby
+" Bundle: kana/vim-textobj-entire
+" Bundle: kana/vim-textobj-lastpat
+" Bundle: kana/vim-textobj-line
+" Bundle: kana/vim-textobj-indent
+" iBundle: vim-textobj-underscore
+" Bundle: terryma/vim-expand-region
+" Bundle: vim-scripts/AnsiEsc.vim
+" iBundle: wting/rust.vim
+" Bundle: kien/ctrlp.vim
+" Bundle: flazz/vim-colorschemes
+" Bundle: ervandew/supertab
 " Bundle: vim-scripts/tComment
 " Bundle: vim-scripts/paredit.vim
 " Bundle: vim-scripts/visualrepeat
 " Bundle: phongnh/vim-tmux
-" Bundle: SirVer/ultisnips
-" Bundle: JazzCore/neocomplcache-ultisnips
-" Bundle: kana/vim-textobj-user
 " Bundle: scrooloose/syntastic
-" -Bundle: scrooloose/nerdtree
+" Bundle: tpope/vim-cucumber
 " Bundle: tpope/vim-sensible
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-fugitive
@@ -38,30 +57,26 @@ let mapleader=","
 " Bundle: tpope/vim-classpath
 " Bundle: tpope/vim-scriptease
 " Bundle: tpope/vim-obsession
-" Bundle: tpope/vim-jdaddy
-" Bundle: tpope/vim-vinegar
 " Bundle: tpope/vim-tbone
 " Bundle: tpope/vim-rbenv
+" Bundle: tpope/vim-jdaddy
 " Bundle: tpope/vim-characterize
 " Bundle: tpope/vim-ragtag
 " Bundle: tpope/vim-sleuth
 " Bundle: tpope/vim-dispatch
 " Bundle: tpope/vim-vividchalk
 " Bundle: tpope/vim-pastie
-" -Bundle: tpope/vim-commentary
-" -Bundle: tpope/vim-sexp-mappings-for-regular-people
-" Bundle: tpope/timl
+" Bundle: tpope/vim-vinegar
+" iBundle: tpope/vim-commentary
+" iBundle: tpope/vim-sexp-mappings-for-regular-people
+" iBundle: tpope/timl
 " Bundle: tpope/vim-leiningen
 " Bundle: kchmck/vim-coffee-script
 " Bundle: ledger/vim-ledger
+" Bundle: guns/xterm-color-table.vim
 " Bundle: guns/vim-clojure-static
 " Bundle: guns/vim-sexp
-" -Bundle: wlangstroth/vim-haskell
-" Bundle: Shougo/neocomplcache
-" Bundle: Shougo/unite.vim
-" Bundle: Shougo/vimproc.vim
-" BundleCommand: make
-" Bundle: ervandew/supertab
+" iBundle: wlangstroth/vim-haskell
 " Bundle: briandoll/change-inside-surroundings.vim
 " Bundle: sjl/gundo.vim
 " Bundle: sjl/clam.vim
@@ -72,48 +87,117 @@ let mapleader=","
 " Bundle: vim-ruby/vim-ruby
 " Bundle: jszakmeister/vim-togglecursor
 " Bundle: jonathanfilip/vim-lucius
-" Bundle: plasticboy/vim-markdown
+" iBundle: plasticboy/vim-markdown
 " Bundle: chriskempson/base16-vim
 " Bundle: bling/vim-airline
 " Bundle: maxbrunsfeld/vim-yankstack
-" -Bundle: kien/rainbow_parentheses.vim
-" Bundle: amdt/vim-niji
-" -Bundle: kien/ctrlp.vim
+
+" rainbow parenthesis
+" Bundle: raymond-w-ko/vim-niji
+
 " Bundle: terryma/vim-multiple-cursors
-" -Bundle: goldfeld/vim-seek
-" Bundle: wellle/targets.vim
-" Bundle: rodjek/vim-puppet
-" -Bundle: cwoac/nvim
 " Bundle: dyng/ctrlsf.vim
 " Bundle: christoomey/vim-tmux-navigator
 " Bundle: junegunn/vim-easy-align
 " Bundle: airblade/vim-gitgutter
-" Bundle: sergeyklay/desert256-transparent.vim
 " Bundle: rking/ag.vim
 " Bundle: 0rca/vim-mikrotik
 " Bundle: tfnico/vim-gradle
+" Bundle: rizzatti/dash.vim
+" Bundle: majutsushi/tagbar
+" iBundle: SirVer/ultisnips
+" iBundle: tomtom/tlib_vim
+" Bundle: MarcWeber/vim-addon-mw-utils
+" iBundle: garbas/vim-snipmate
+" Bundle: rcyrus/snipmate-snippets-rubymotion
+" Bundle: honza/vim-snippets
+" Bundle: MarcWeber/vim-addon-local-vimrc
+" Bundle: bling/vim-bufferline
+" Bundle: edkolev/tmuxline.vim
+" Bundle: jlanzarotta/bufexplorer
+" iBundle: Lokaltog/vim-easymotion
+" iBundle: goldfeld/vim-seek
+" Bundle: Shougo/neocomplete.vim
+" Bundle: Shougo/vimproc
+" iBundleCommand: make
+" iBundle: Shougo/unite.vim
+" iBundle: Shougo/unite-outline
+" iBundle: Shougo/unite-help
+" iBundle: Shougo/unite-session
+" iBundle: Shougo/neomru.vim
+" iBundle: thinca/vim-unite-history
+" iBundle: Shougo/vimfiler
+" Bundle: john2x/flatui.vim
+" Bundle: jaxbot/semantic-highlight.vim
+" Bundle: mattn/emmet-vim
+" Bundle: raichoo/purescript-vim
+" Bundle: scrooloose/nerdtree
+" Bundle: bitc/vim-hdevtools
+" iBundle: enomsg/vim-haskellConcealPlus
+" Bundle: wting/rust.vim
+
+let g:jsx_ext_required = 0
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
 " let g:multi_cursor_prev_key='<C-p>'
 " let g:multi_cursor_skip_key='<C-x>'
-" let g:multi_cursor_quit_key='<Esc>'
+" let g:multi_cursor_quit_key='<C-c>'
 
 let g:vim_markdown_folding_disabled=1
 let g:macvim_hig_shift_movement=1
 
-let g:neocomplcache_enable_fuzzy_completion = 3
+let g:acp_enableAtStartup = 1
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_camel_case = 1
+let g:neocomplete#enable_auto_select = 0
+" let g:neocomplete#max_list =
+inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-if has('gui_running')
-set guifont=Source\ Code\ Pro\ Medium:h14
-set guioptions-=T
-set guicursor+=n-v-c:blinkon0
-set linespace=0
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
 endif
 
-set t_Co=256 " 256 color mode
-set background=dark
-silent colorscheme base16-ocean
+if has('gui_running')
+  set guifont=Source\ Code\ Pro:h12
+  set guioptions=egm
+  set guicursor+=n-v-c:blinkon0
+  set linespace=0
+  " set fullscreen
+  silent colorscheme base16-default
+  set background=light
+else
+  set t_Co=256 " 256 color mode
+  set background=light
+  silent colorscheme lucius
+endif
+
+" Airline configuration
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
@@ -131,8 +215,8 @@ set linebreak "Break lines a little smarter
 set textwidth=78
 set colorcolumn=+1
 set cmdheight=1
-set wildmode=full
-set cursorline
+set wildmode=longest:full,full
+" set cursorline
 
 " These can affect plugins (beware)
 nnoremap j gj
@@ -181,10 +265,10 @@ set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
 
 " Window Movement
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+" nmap <silent> <C-h> :wincmd h<CR>
+" nmap <silent> <C-j> :wincmd j<CR>
+" nmap <silent> <C-k> :wincmd k<CR>
+" nmap <silent> <C-l> :wincmd l<CR>
 
 " source vimrc and runtime
 nmap <silent> <leader>v :Runtime<CR>
@@ -200,7 +284,8 @@ autocmd BufRead .vimrc :set formatoptions-=c
 autocmd BufRead *.txt :set formatoptions+=a
 
 " No more complaining about untitled documents
-autocmd FocusLost * nested silent! wall
+" autocmd FocusLost * nested silent! wall
+
 
 " When editing a file, always jump to the last cursor position.
 " This must be after the uncompress commands.
@@ -221,13 +306,10 @@ autocmd BufRead *.sb             setf scheme
 " recognize haml and hamlc
 autocmd BufNewFile,BufRead *.hamlc  setf haml
 
-endif
+au FileType haskell nnoremap <buffer> <leader>t :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <leader>i :HdevtoolsInfo<CR>
+" au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
-if exists("RainbowParenthesesActivate")
-au VimEnter * RainbowParenthesesActivate
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 endif
 
 " Use Q for formatting the current paragraph (or selection)
@@ -249,10 +331,9 @@ endif
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set fillchars=vert:│
 
-
 set keymap=russian-jcukenwin
 " remap layout switch
-imap <C-L> <C-^>
+" imap <C-L> <C-^>
 " setlocal spell spelllang=ru_yo,en_us
 set iminsert=0
 set imsearch=0
@@ -264,7 +345,7 @@ nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
 
 if exists("GitGrep")
-nmap <Leader>A :GitGrep<space>
+  nmap <Leader>A :GitGrep<space>
 endif
 
 nmap <c-w><c-c> <c-w>c
@@ -285,41 +366,17 @@ exec '!' g:browser url '&'
 endfunction
 noremap gGH :call OpenGitHub(expand('<cWORD>'))<CR><CR>
 
-
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 nmap <C-x>g :Gstatus<CR>
 nmap <C-x>; :
 
-let g:unite_enable_split_vertically = 1
-let g:unite_enable_short_source_names = 1
-let g:unite_enable_ignore_case = 1
-
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  " Overwrite settings.
-  imap <buffer> qq <Plug>(unite_exit)
-  imap <buffer> jj <Plug>(unite_insert_leave)
-  imap <buffer> kk <Plug>(unite_insert_leave)
-endfunction
-
-nnoremap <silent> <leader>ff :<C-U>Unite file<CR>
-nnoremap <silent> <leader>fb :<C-U>Unite file buffer -start-insert<CR>
-nnoremap <silent> <leader>fr :<C-U>Unite file_rec/async -start-insert<CR>
-nnoremap <silent> <leader>dr :<C-U>Unite directory_rec/async<CR>
-nnoremap <silent> <leader>gf :<C-U>UniteWithCursorWord file_rec/async -start-insert<CR>
-nnoremap <silent> <leader>fn :<C-U>Unite file/new -start-insert<CR>
-nnoremap <silent> <leader>b  :<C-U>Unite buffer bookmark -start-insert<CR>
-nnoremap <silent> <leader>rr :<C-U>Unite register<CR>
-
 autocmd BufRead .vimrc :iab <buffer> bu Bundle:
 
 " Start interactive EasyAlign in visual mode
 vmap <Enter> <Plug>(EasyAlign)
 
-" Start interactive EasyAlign with a Vim movement
-nmap <Leader>a <Plug>(EasyAlign)
 
 " Emacs/bash-like navigation/editing in command and insert modes
 noremap! <C-a>  <Home>
@@ -330,10 +387,9 @@ noremap! <C-d>  <Delete>
 noremap! <M-b>  <S-Left>
 noremap! <M-f>  <S-Right>
 noremap! <M-d>  <S-right><Delete>
-noremap! <Esc>b <S-Left>
-noremap! <Esc>f <S-Right>
-noremap! <Esc>d <S-right><Delete>
-noremap! <C-g>  <C-c>
+" iunmap   <C-G>s
+" iunmap   <C-G>S
+" noremap! <C-g>  <C-c>
 
 autocmd FileType html call s:html_my_settings()
 function! s:html_my_settings()
@@ -344,8 +400,76 @@ endfunction
 " always keep cursor in the middle
 set scrolloff=5
 
+nmap <F8> :TagbarToggle<CR>
+nmap <leader>dd :Dash<CR>
+
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" let g:unite_source_file_async_command = "git ls-files"
+" nnoremap <c-p> :Unite -no-split -start-insert buffer file/async<cr>
+
+" Custom mappings for the unite buffer
+" autocmd FileType unite call s:unite_settings()
+" function! s:unite_settings()
+"   " Play nice with supertab
+"   let b:SuperTabDisabled=1
+"   " Enable navigation with control-j and control-k in insert mode
+"   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+"   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+"   imap <buffer> qq <C-c>
+" endfunction
+
+" nmap w <Plug>(easymotion-bd-w)
+" nmap s <Plug>(easymotion-s2)
+" nmap S <Plug>(easymotion-bd-s2)
+" nmap t <Plug>(easymotion-bd-t2)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+" nmap f <Plug>(easymotion-sl)
+
+" omap t <PLug>(easymotion-bd-tl)
+"
+let g:airline#extensions#tmuxline#enabled = 0
+let g:ctrlp_match_window = 'bottom,order:ttb,max:20'
+
+let g:semanticTermColors = [
+      \ 1,2,3,4,5,6,17,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,
+      \ 40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,
+      \ 63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,
+      \ 86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,
+      \ 107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,
+      \ 124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,
+      \ 141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,
+      \ 158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,
+      \ 175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,
+      \ 192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,
+      \ 209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,
+      \ 226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,
+      \ 243,244,245,246,247,248,249,250,251,252,253,254,255]
+
+" http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+" Open new split panes to right and bottom, which feels more natural than Vim’s default:
+set splitbelow
+set splitright
+
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+
+" fast ag search for word under cursor
+nmap <leader><leader>a yiw:CtrlSF <c-r>"<cr>
 
 
-set background=dark
+set ttyfast
+set lazyredraw
+
+" Haskell goodies
+map <silent> <Leader>e :Errors<CR>
+map <Leader>s :SyntasticToggleMode<CR>
+" let g:syntastic_auto_loc_list=1
+" Reload
+map <silent> tu :call GHC_BrowseAll()<CR>
+" Type Lookup
+map <silent> tw :call GHC_ShowType(1)<CR>
 
 
+" Disable ghc-mod
+let g:syntastic_haskell_checkers = ['hdevtools', 'hlint', 'scan']
+let g:syntastic_haskell_hdevtools_args = '-g'
