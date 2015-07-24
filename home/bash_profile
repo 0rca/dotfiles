@@ -29,7 +29,6 @@ export PAGER='less'
 export HISTSIZE=16384
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export TERM=xterm-256color
 
@@ -53,12 +52,19 @@ function setjdk() {
    export JAVA_HOME=`/usr/libexec/java_home -v $@`
    export PATH=$JAVA_HOME/bin:$PATH
   fi
-  echo JAVA_HOME set to $JAVA_HOME
-  java -version
- }
- function removeFromPath() {
-  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
- }
+  # echo JAVA_HOME set to $JAVA_HOME
+  # java -version
+}
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/orca/.gvm/bin/gvm-init.sh" ]] && source "/Users/orca/.gvm/bin/gvm-init.sh"
+function removeFromPath() {
+    export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+}
+
+stty -ixon -igncr
+setjdk 1.7
+
+# Base16 Shell
+BASE16_SCHEME="default"
+BASE16_SHELL="/Users/orca/code/base16-builder/output/shell/base16-$BASE16_SCHEME.light.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
