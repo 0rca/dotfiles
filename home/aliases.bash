@@ -1,5 +1,7 @@
 ## .zshrc.local
 # paths setup
+# export EDITOR='mvim --remote-silent'
+export EDITOR='vim'
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$PATH:/Applications/WebKit.app/Contents/Frameworks/10.9/JavaScriptCore.framework/Resources
 export JSC_HOME=/Applications/WebKit.app/Contents/Frameworks/10.9/JavaScriptCore.framework/Resources
@@ -10,8 +12,12 @@ export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.rbenv/shims
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export TODO_TXT_PATH=$HOME/.todo.txt
+export PATH=$PATH:$HOME/.local/bin
 
 if which brew > /dev/null; then
   export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
@@ -19,50 +25,15 @@ fi
 export V8_HOME=/usr/local/Cellar/v8/3.21.17/bin
 export SPIDERMONKEY_HOME=/usr/local/Cellar/spidermonkey/1.8.5/bin
 
-export PATH=$PATH:$HOME/.rbenv/shims
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 export MAKEFLAGS="-j 8"
 
-eval "$($HOME/code/av/bin/av init -)"
 eval "$(fasd --init auto)"
 eval "$(rbenv init - --no-rehash)"
 
-
-alias gusto='gusteau'
-alias gu='gusteau'
-
-function :dash() {
-  open dash://$1
-}
-
 # qwandry open gem with vim
-alias qw='qw -e vim'
+alias qw="qw -e '$EDITOR'"
 
-function gh() {
-  open "https://github.com/search?q=$1&ref=commandline"
-}
-
-function dg(){
-  open "https://duckduckgo.com/?q=$1"
-}
-
-function so(){
-  open "http://stackoverflow.com/?q=$1"
-}
-
-alias vagrant='vagrant'
-
-# Task management
-# alias g='python ~/code/t/t.py --task-dir ~/ --list GAMES.txt'
-# alias t='python ~/code/t/t.py --task-dir . --list TODO.txt'
-function -t(){
-  task $@ done
-}
-alias t=task
-
-alias nv='cd ~/Documents/Notational\ data/; vim .'
-
-alias http='python -m SimpleHTTPServer'
 alias vundle='vim-update-bundles'
 alias vun='vundle -n'
 alias bx='bundle exec'
@@ -90,43 +61,49 @@ alias rst='touch tmp/restart.txt'
 alias reload='source ~/.bash_profile'
 alias ra='source ~/.aliases.bash'
 
-alias ec="vim ~/.lein/profiles.clj"
-alias ea="vim ~/.aliases.bash"
-alias ev="vim ~/.vimrc"
-alias eg="vim ~/.rbenv/default-gems"
-alias ep="vim ~/.bash_profile"
-alias ei="vim ~/.inputrc"
-alias et='vim ~/.tmux.conf'
-alias es='vim ~/.ssh/config'
+alias e=$EDITOR
+alias ec="$EDITOR ~/.lein/profiles.clj"
+alias ea="$EDITOR ~/.aliases.bash"
+alias ev="$EDITOR ~/.vimrc"
+alias eg="$EDITOR ~/.rbenv/default-gems"
+alias ep="$EDITOR ~/.bash_profile"
+alias ei="$EDITOR ~/.inputrc"
+alias et="$EDITOR ~/.tmux.conf"
+alias es="$EDITOR ~/.ssh/config"
 
 # osx
 alias lt='/Applications/LightTable/light'
-alias el='vim ~/ledger/money.ledger'
+alias el="$EDITOR ~/ledger/money1.ledger"
 alias lr='ledger'
 
 alias p='powify'
 alias tailf='tail -f'
 
-export EDITOR="vim"
 export MY_RUBY_HOME=/usr
 
 alias lss='du -sh * |sort -hr'
-
 
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 alias lrm='sudo launchctl unload -w'
 
 function pg-up() {
-  tmux -2 new-session -d -s "postgresql"
+  TMUX= tmux -2 new-session -d -s "postgresql"
   # tmux new-window -t "postgres":0 -n "Server"
-  tmux send-keys -t "postgresql" "postgres -D /usr/local/var/postgres" C-m
+  TMUX= tmux send-keys -t "postgresql" "postgres -D /usr/local/var/postgres9.3" C-m
 }
+
 function pg-down() {
   tmux send-keys -t "postgresql" C-c C-d
 }
-alias em='vim ~/.live-packs/orca-pack/init.el'
-alias emm='vim ~/.emacs-live.el'
+
+function tmux-run() {
+  TMUX= tmux -2 new-session -d -s $1
+  TMUX= tmux send-keys -t $1 $@ C-m
+}
+
+alias em="$EDITOR ~/.live-packs/orca-pack/init.el"
+alias emm="$EDITOR ~/.emacs-live.el"
 
 alias ee='emacsclient -t'
 
@@ -136,7 +113,7 @@ alias ls='ls --color'
 alias sl='ls --color'
 alias la='ls -a'
 
-function ttt {
+function tm {
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 }
 
@@ -144,3 +121,10 @@ alias ..='cd ..'
 alias ....='cd ../..'
 
 alias rmrf='rm -rf'
+
+alias raek='rake'
+
+function bro() {
+  brew info $1 | sed -n 2p | xargs open
+}
+

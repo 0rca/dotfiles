@@ -9,3 +9,5 @@ home/lein/self-installs
 home/lein/repl-history
 home/cache
 home/lein/*.gpg
+
+home/vim/.netrwhist
