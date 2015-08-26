@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p ~/.cache/vim/swap ~/.cache/vim/undo
+
 cd home
 for f in *; do
   ln -s -f -T $(pwd)/$f "$HOME/.$f"

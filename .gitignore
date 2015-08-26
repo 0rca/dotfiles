@@ -11,3 +11,4 @@ home/cache
 home/lein/*.gpg
 
 home/vim/.netrwhist
+home/vim/plugged
