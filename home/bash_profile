@@ -67,4 +67,5 @@ setjdk 1.7
 BASE16_SCHEME="default"
 BASE16_SHELL="/Users/orca/code/base16-builder/output/shell/base16-$BASE16_SCHEME.light.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

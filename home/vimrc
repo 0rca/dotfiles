@@ -4,13 +4,10 @@ if &term =~ '256color'
 endif
 
 " let base16colorspace=256  " Access colors present in 256 colorspace
-
-set rtp+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
 set nocompatible               " be iMproved
 set encoding=utf-8
 filetype off                   " required!
 set nobackup
-execute pathogen#infect()
 syntax on
 runtime macros/matchit.vim
 
@@ -22,119 +19,109 @@ endif
 let mapleader=","
 " let maplocalleader="\\"
 
-" Bundle: kana/vim-textobj-user
-" Bundle: Julian/vim-textobj-variable-segment
-" Bundle: tek/vim-textobj-ruby
-" Bundle: kana/vim-textobj-entire
-" Bundle: kana/vim-textobj-lastpat
-" Bundle: kana/vim-textobj-line
-" Bundle: kana/vim-textobj-indent
-" iBundle: vim-textobj-underscore
-" Bundle: terryma/vim-expand-region
-" Bundle: vim-scripts/AnsiEsc.vim
-" iBundle: wting/rust.vim
-" Bundle: kien/ctrlp.vim
-" Bundle: flazz/vim-colorschemes
-" Bundle: ervandew/supertab
-" Bundle: vim-scripts/tComment
-" Bundle: vim-scripts/paredit.vim
-" Bundle: vim-scripts/visualrepeat
-" Bundle: phongnh/vim-tmux
-" Bundle: scrooloose/syntastic
-" Bundle: tpope/vim-cucumber
-" Bundle: tpope/vim-sensible
-" Bundle: tpope/vim-haml
-" Bundle: tpope/vim-fugitive
-" Bundle: tpope/vim-bundler
-" Bundle: tpope/vim-eunuch
-" Bundle: tpope/vim-rails
-" Bundle: tpope/vim-unimpaired
-" Bundle: tpope/vim-surround
-" Bundle: tpope/vim-repeat
-" Bundle: tpope/vim-abolish
-" Bundle: tpope/vim-endwise
-" Bundle: tpope/vim-fireplace
-" Bundle: tpope/vim-classpath
-" Bundle: tpope/vim-scriptease
-" Bundle: tpope/vim-obsession
-" Bundle: tpope/vim-tbone
-" Bundle: tpope/vim-rbenv
-" Bundle: tpope/vim-jdaddy
-" Bundle: tpope/vim-characterize
-" Bundle: tpope/vim-ragtag
-" Bundle: tpope/vim-sleuth
-" Bundle: tpope/vim-dispatch
-" Bundle: tpope/vim-vividchalk
-" Bundle: tpope/vim-pastie
-" Bundle: tpope/vim-vinegar
-" iBundle: tpope/vim-commentary
-" iBundle: tpope/vim-sexp-mappings-for-regular-people
-" iBundle: tpope/timl
-" Bundle: tpope/vim-leiningen
-" Bundle: kchmck/vim-coffee-script
-" Bundle: ledger/vim-ledger
-" Bundle: guns/xterm-color-table.vim
-" Bundle: guns/vim-clojure-static
-" Bundle: guns/vim-sexp
-" iBundle: wlangstroth/vim-haskell
-" Bundle: briandoll/change-inside-surroundings.vim
-" Bundle: sjl/gundo.vim
-" Bundle: sjl/clam.vim
-" Bundle: sjl/vitality.vim
-" Bundle: sjl/tslime2.vim
-" Bundle: mattn/webapi-vim
-" Bundle: mattn/gist-vim
-" Bundle: vim-ruby/vim-ruby
-" Bundle: jszakmeister/vim-togglecursor
-" Bundle: jonathanfilip/vim-lucius
-" iBundle: plasticboy/vim-markdown
-" Bundle: chriskempson/base16-vim
-" Bundle: bling/vim-airline
-" Bundle: maxbrunsfeld/vim-yankstack
+" Plug section
+let g:plug_window ='vertical botright new'
+call plug#begin('~/.vim/plugged')
 
-" rainbow parenthesis
-" Bundle: raymond-w-ko/vim-niji
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'Julian/vim-textobj-variable-segment'
+Plug 'tek/vim-textobj-ruby'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-lastpat'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-indent'
+Plug 'edkolev/tmuxline.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/tComment'
+Plug 'vim-scripts/paredit.vim'
+Plug 'vim-scripts/visualrepeat'
+Plug 'phongnh/vim-tmux'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-vividchalk'
+Plug 'tpope/vim-pastie'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-leiningen'
+Plug 'kchmck/vim-coffee-script'
+Plug 'ledger/vim-ledger'
+Plug 'guns/xterm-color-table.vim'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-sexp'
+Plug 'briandoll/change-inside-surroundings.vim'
+Plug 'sjl/gundo.vim'
+Plug 'sjl/clam.vim'
+Plug 'sjl/vitality.vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'chriskempson/base16-vim'
+Plug 'bling/vim-airline'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'raymond-w-ko/vim-niji'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'dyng/ctrlsf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/vim-easy-align'
+Plug 'airblade/vim-gitgutter'
+Plug 'rking/ag.vim'
+Plug '0rca/vim-mikrotik'
+Plug 'tfnico/vim-gradle'
+Plug 'rizzatti/dash.vim'
+Plug 'majutsushi/tagbar'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'rcyrus/snipmate-snippets-rubymotion'
+Plug 'honza/vim-snippets'
+Plug 'MarcWeber/vim-addon-local-vimrc'
+Plug 'bling/vim-bufferline'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'Lokaltog/vim-easymotion'
+" Plug 'goldfeld/vim-seek'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimproc', { 'do' : 'make' }
+Plug 'plasticboy/vim-markdown'
+Plug 'wlangstroth/vim-haskell'
+Plug 'john2x/flatui.vim'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'mattn/emmet-vim'
+Plug 'raichoo/purescript-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'bitc/vim-hdevtools'
+" Plug 'enomsg/vim-haskellConcealPlus'
+Plug 'wting/rust.vim'
 
-" Bundle: terryma/vim-multiple-cursors
-" Bundle: dyng/ctrlsf.vim
-" Bundle: christoomey/vim-tmux-navigator
-" Bundle: junegunn/vim-easy-align
-" Bundle: airblade/vim-gitgutter
-" Bundle: rking/ag.vim
-" Bundle: 0rca/vim-mikrotik
-" Bundle: tfnico/vim-gradle
-" Bundle: rizzatti/dash.vim
-" Bundle: majutsushi/tagbar
-" iBundle: SirVer/ultisnips
-" iBundle: tomtom/tlib_vim
-" Bundle: MarcWeber/vim-addon-mw-utils
-" iBundle: garbas/vim-snipmate
-" Bundle: rcyrus/snipmate-snippets-rubymotion
-" Bundle: honza/vim-snippets
-" Bundle: MarcWeber/vim-addon-local-vimrc
-" Bundle: bling/vim-bufferline
-" Bundle: edkolev/tmuxline.vim
-" Bundle: jlanzarotta/bufexplorer
-" iBundle: Lokaltog/vim-easymotion
-" iBundle: goldfeld/vim-seek
-" Bundle: Shougo/neocomplete.vim
-" Bundle: Shougo/vimproc
-" iBundleCommand: make
-" iBundle: Shougo/unite.vim
-" iBundle: Shougo/unite-outline
-" iBundle: Shougo/unite-help
-" iBundle: Shougo/unite-session
-" iBundle: Shougo/neomru.vim
-" iBundle: thinca/vim-unite-history
-" iBundle: Shougo/vimfiler
-" Bundle: john2x/flatui.vim
-" Bundle: jaxbot/semantic-highlight.vim
-" Bundle: mattn/emmet-vim
-" Bundle: raichoo/purescript-vim
-" Bundle: scrooloose/nerdtree
-" Bundle: bitc/vim-hdevtools
-" iBundle: enomsg/vim-haskellConcealPlus
-" Bundle: wting/rust.vim
+" Add plugins to &runtimepath
+call plug#end()
+" End plug section
 
 let g:jsx_ext_required = 0
 

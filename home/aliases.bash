@@ -47,8 +47,8 @@ alias gp='git push'
 alias gf='git fetch'
 alias gfa='git fetch --all'
 alias gb='git branch -v'
-alias gb='git branch | cut -c 3- | selecta | xargs git checkout'
-alias gm='git branch | cut -c 3- | selecta | xargs -I {} git merge {} --no-ff'
+alias gbi='git branch | cut -c 3- | fzf | xargs git checkout'
+alias gmi='git branch | cut -c 3- | fzf | xargs -I {} git merge {} --no-ff'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gff='git merge --ff-only origin/`git rev-parse --abbrev-ref HEAD`'
@@ -91,7 +91,7 @@ alias lrm='sudo launchctl unload -w'
 function pg-up() {
   TMUX= tmux -2 new-session -d -s "postgresql"
   # tmux new-window -t "postgres":0 -n "Server"
-  TMUX= tmux send-keys -t "postgresql" "postgres -D /usr/local/var/postgres9.3" C-m
+  TMUX= tmux send-keys -t "postgresql" "postgres -D /usr/local/var/postgres" C-m
 }
 
 function pg-down() {
@@ -113,6 +113,7 @@ alias vpn='while true; do ssh -N -D 127.0.0.1:1080 wiki; done'
 alias ls='ls --color'
 alias sl='ls --color'
 alias la='ls -a'
+alias 'ls-l'='ls -l'
 
 function tm {
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
@@ -129,3 +130,10 @@ function bro() {
   brew info $1 | sed -n 2p | xargs open
 }
 
+alias cl="clear"
+
+# fj - changing directory with fasd
+fj() {
+  local dir
+  dir=$(fasd -Rdl | fzf --no-sort +m) && cd "$dir"
+}
