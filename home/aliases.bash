@@ -74,8 +74,8 @@ alias es="$EDITOR ~/.ssh/config"
 
 # osx
 alias lt='/Applications/LightTable/light'
-alias el="$EDITOR ~/ledger/money1.ledger"
-alias lr='ledger'
+alias el="$EDITOR ~/Documents/Ledger/money1.ledger"
+alias lr='ledger -f ~/Documents/Ledger/money1.ledger'
 
 alias p='powify'
 alias tailf='tail -f'
@@ -137,3 +137,8 @@ fj() {
   local dir
   dir=$(fasd -Rdl | fzf --no-sort +m) && cd "$dir"
 }
+
+function clip() {
+  [ -t 0 ] && pbpaste || pbcopy
+}
+
