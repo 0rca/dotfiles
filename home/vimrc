@@ -1,3 +1,6 @@
+
+set rtp^="/Users/0rca/.opam/system/share/ocp-indent/vim"
+
 if &term =~ '256color'
   " disable Background Color Erase (BCE)
   set t_ut=
@@ -23,7 +26,9 @@ let mapleader=","
 let g:plug_window ='vertical botright new'
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'idris-hackers/idris-vim'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'benekastah/neomake'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'tek/vim-textobj-ruby'
 Plug 'jonathanfilip/vim-lucius'
@@ -32,19 +37,16 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-indent'
-Plug 'edkolev/tmuxline.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/tComment'
 Plug 'vim-scripts/paredit.vim'
 Plug 'vim-scripts/visualrepeat'
-Plug 'phongnh/vim-tmux'
 Plug 'scrooloose/syntastic'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-bundler'
@@ -92,8 +94,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'dyng/ctrlsf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
-Plug 'rking/ag.vim'
 Plug '0rca/vim-mikrotik'
 Plug 'tfnico/vim-gradle'
 Plug 'rizzatti/dash.vim'
@@ -105,25 +105,41 @@ Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'bling/vim-bufferline'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'Lokaltog/vim-easymotion'
-" Plug 'goldfeld/vim-seek'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimproc', { 'do' : 'make' }
 Plug 'plasticboy/vim-markdown'
-Plug 'wlangstroth/vim-haskell'
 Plug 'john2x/flatui.vim'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'mattn/emmet-vim'
 Plug 'raichoo/purescript-vim'
-Plug 'scrooloose/nerdtree'
 Plug 'bitc/vim-hdevtools'
-" Plug 'enomsg/vim-haskellConcealPlus'
 Plug 'wting/rust.vim'
+Plug 'lambdatoast/elm.vim'
+Plug 'slim-template/vim-slim'
+Plug 'pearofducks/ansible-vim'
+Plug 'elmcast/elm-vim'
+Plug 'idris-hackers/idris-vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'slashmili/alchemist.vim'
+Plug 'dleonard0/pony-vim-syntax'
+Plug 'neomake/neomake'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'kylef/apiblueprint.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
 " End plug section
 
 let g:jsx_ext_required = 0
+
+" elm-vim configuration
+let g:elm_format_autosave = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -162,6 +178,8 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
 " inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+"
+"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -169,17 +187,19 @@ if has('conceal')
 endif
 
 if has('gui_running')
-  set guifont=Source\ Code\ Pro:h12
+  set guifont=Fira\ Code:h12
   set guioptions=egm
   set guicursor+=n-v-c:blinkon0
   set linespace=0
   " set fullscreen
-  silent colorscheme base16-default
+  silent colorscheme solarized
   set background=light
 else
   set t_Co=256 " 256 color mode
+  set guicursor+=n-v-c:blinkon0
   set background=light
   silent colorscheme lucius
+  silent LuciusDark
 endif
 
 " Airline configuration
@@ -216,7 +236,7 @@ set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
 set clipboard+=unnamed " Yanks go on clipboard instead.
-set timeoutlen=1000     " Time to wait for a command (after leader for example)
+set timeoutlen=1000    " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
 set formatoptions=crql
 
@@ -296,6 +316,8 @@ autocmd BufNewFile,BufRead *.hamlc  setf haml
 au FileType haskell nnoremap <buffer> <leader>t :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <leader>i :HdevtoolsInfo<CR>
 " au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+"
+" autocmd! BufWritePost * Neomake credo
 
 endif
 
@@ -444,8 +466,8 @@ set splitright
 nmap <leader><leader>a yiw:CtrlSF <c-r>"<cr>
 
 
-set ttyfast
-set lazyredraw
+" set ttyfast
+" set lazyredraw
 
 " Haskell goodies
 map <silent> <Leader>e :Errors<CR>
@@ -460,3 +482,18 @@ map <silent> tw :call GHC_ShowType(1)<CR>
 " Disable ghc-mod
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint', 'scan']
 let g:syntastic_haskell_hdevtools_args = '-g'
+let g:syntastic_ruby_checkers = ['rubocop']
+"
+" save file shortcut
+map <C-s> :w<CR>
+
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 1
+let g:haskell_indent_where = 6
+let g:haskell_indent_let = 4
+let g:haskell_indent_case = 2
+let g:haskell_indent_if = 3
+let g:cabal_indent_section = 2
+
+command! FormatJSON %!python -m json.tool
+

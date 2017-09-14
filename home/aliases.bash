@@ -1,23 +1,20 @@
 ## .zshrc.local
-# paths setup
-# export EDITOR='mvim --remote-silent'
-export EDITOR='vim'
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$PATH:/Applications/WebKit.app/Contents/Frameworks/10.9/JavaScriptCore.framework/Resources
-export JSC_HOME=/Applications/WebKit.app/Contents/Frameworks/10.9/JavaScriptCore.framework/Resources
 export GOPATH=$HOME/code/go
 export ANDROID_HOME=$HOME/code/android/sdk
 export PATH=$PATH:/usr/local/share/npm/bin
-export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/.rbenv/shims
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export TODO_TXT_PATH=$HOME/.todo.txt
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:`yarn global bin`"
 
 if which brew > /dev/null; then
   export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
@@ -25,17 +22,14 @@ fi
 export V8_HOME=/usr/local/Cellar/v8/3.21.17/bin
 export SPIDERMONKEY_HOME=/usr/local/Cellar/spidermonkey/1.8.5/bin
 
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+# export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 export MAKEFLAGS="-j 8"
 
 eval "$(fasd --init auto)"
-eval "$(rbenv init - --no-rehash)"
 
 # qwandry open gem with vim
 alias qw="qw -e '$EDITOR'"
 
-alias vundle='vim-update-bundles'
-alias vun='vundle -n'
 alias bx='bundle exec'
 alias bo='bundle open'
 
@@ -52,13 +46,10 @@ alias gmi='git branch | cut -c 3- | fzf | xargs -I {} git merge {} --no-ff'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gff='git merge --ff-only origin/`git rev-parse --abbrev-ref HEAD`'
-alias git='hub'
-alias gl='git log'
-alias gx='gitx'
+# alias git='hub'
+alias gl='git log --graph --oneline --decorate'
 
 alias o='open'
-
-alias rst='touch tmp/restart.txt'
 alias reload='source ~/.bash_profile'
 alias ra='source ~/.aliases.bash'
 
@@ -66,71 +57,39 @@ alias e=$EDITOR
 alias ec="$EDITOR ~/.lein/profiles.clj"
 alias ea="$EDITOR ~/.aliases.bash"
 alias ev="$EDITOR ~/.vimrc"
-alias eg="$EDITOR ~/.rbenv/default-gems"
 alias ep="$EDITOR ~/.bash_profile"
 alias ei="$EDITOR ~/.inputrc"
 alias et="$EDITOR ~/.tmux.conf"
 alias es="$EDITOR ~/.ssh/config"
 
 # osx
-alias lt='/Applications/LightTable/light'
 alias el="$EDITOR ~/Documents/Ledger/money1.ledger"
 alias lr='ledger -f ~/Documents/Ledger/money1.ledger'
-
-alias p='powify'
 alias tailf='tail -f'
 
 export MY_RUBY_HOME=/usr
-
-alias lss='du -sh * |sort -hr'
-
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
+alias lss='du -sh * |sort -hr'
 alias lrm='sudo launchctl unload -w'
 
-function pg-up() {
-  TMUX= tmux -2 new-session -d -s "postgresql"
-  # tmux new-window -t "postgres":0 -n "Server"
-  TMUX= tmux send-keys -t "postgresql" "postgres -D /usr/local/var/postgres" C-m
-}
-
-function pg-down() {
-  tmux send-keys -t "postgresql" C-c C-d
-}
-
-function tmux-run() {
+tmuxstart() {
   TMUX= tmux -2 new-session -d -s $1
-  TMUX= tmux send-keys -t $1 $@ C-m
+  TMUX= tmux send-keys -t "$1" "$2" C-m
 }
 
-alias em="$EDITOR ~/.live-packs/orca-pack/init.el"
-alias emm="$EDITOR ~/.emacs-live.el"
+start-kafka() {
+  tmux new-session -d -s kafka-server -n zookeeper-server zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
+  tmux new-window -d -n kafka-server -t kafka-server kafka-server-start /usr/local/etc/kafka/server.properties
+}
 
-alias ee='emacsclient -t'
-
-alias vpn='while true; do ssh -N -D 127.0.0.1:1080 wiki; done'
-
-alias ls='ls --color'
-alias sl='ls --color'
-alias la='ls -a'
-alias 'ls-l'='ls -l'
+stop-kafka() {
+  kafka-server-stop; zookeeper-server-stop
+}
 
 function tm {
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  tmux -2 new-session -s "$USER"
 }
-
-alias ..='cd ..'
-alias ....='cd ../..'
-
-alias rmrf='rm -rf'
-
-alias raek='rake'
-
-function bro() {
-  brew info $1 | sed -n 2p | xargs open
-}
-
-alias cl="clear"
 
 # fj - changing directory with fasd
 fj() {
@@ -141,4 +100,22 @@ fj() {
 function clip() {
   [ -t 0 ] && pbpaste || pbcopy
 }
+
+alias c=cli
+alias ec="vim ~/.local/bin/cli"
+alias e.='e .'
+alias st='open -a SourceTree'
+alias st.='open -a SourceTree .'
+alias git=hub
+alias mps="mix phoenix.server"
+alias vim=nvim
+alias xee='open -a "Xee³"'
+alias idea='open -a "IntelliJ IDEA CE"'
+
+
+function gcof() {
+  git checkout `git branch --list --no-color | cut -c 3- | fzf -q $1`
+}
+
+# alias yi="yi --as=vim"
 

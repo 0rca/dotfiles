@@ -8,7 +8,7 @@ set show-all-if-ambiguous On
 set show-all-if-unmodified On
 set visible-stats On
 
-# TAB: complete
+TAB: menu-complete
 
 set keymap emacs
 Control-w: unix-filename-rubout

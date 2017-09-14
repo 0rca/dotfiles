@@ -15,3 +15,11 @@ stash
 
 src/main/groovy/repl.clj
 frepl
+tags
+.stack-work
+**/elm-stuff
+local
+.vscode
+intellij-testrun.log
+npm-debug.log
+dist

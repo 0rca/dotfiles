@@ -1,19 +1,19 @@
-if which brew >/dev/null; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-  fi
-fi
+export EDITOR='nvim'
+export VISUAL='view'
+export PAGER='less'
 
-if which rbenv > /dev/null; then
-  eval "$(rbenv init - --no-rehash)"
-fi
-eval $(dircolors -b $HOME/.dircolors)
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+source $HOME/.git-prompt.sh
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+
+# eval $(dircolors -b $HOME/.dircolors)
 
 [ -r $HOME/.aliases.bash ] && source $HOME/.aliases.bash
+[ -r $HOME/.bash.local ] && source $HOME/.bash.local
 
 shopt -s cdspell
-
-export PATH="$HOME/.rbenv/bin:$PATH"
 
 ### Added by the Heroku Toolbelt (should reside in local profile)
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -22,22 +22,15 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-export EDITOR='vim'
-export VISUAL='view'
-export PAGER='less'
-
 export HISTSIZE=16384
+# Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
-
+# After each command, append to the history file and reread it
+# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 export TERM=xterm-256color
-
-# if [[ "$TERM" != "screen-256color" ]]
-# then
-#   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
-#   exit
-# fi
-#
 
 # switch between Java JDKs
 # credit goes to Neeme Praks @ superuser.com
@@ -53,7 +46,7 @@ function setjdk() {
    export PATH=$JAVA_HOME/bin:$PATH
   fi
   # echo JAVA_HOME set to $JAVA_HOME
-  # java -version
+  java -version
 }
 
 function removeFromPath() {
@@ -61,11 +54,21 @@ function removeFromPath() {
 }
 
 stty -ixon -igncr
-setjdk 1.7
+# setjdk 1.8
 
 # Base16 Shell
 BASE16_SCHEME="default"
 BASE16_SHELL="/Users/orca/code/base16-builder/output/shell/base16-$BASE16_SCHEME.light.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+eval "$(stack --bash-completion-script stack)"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# OPAM configuration
+#. /Users/0rca/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+ulimit -S -n 512
 

@@ -12,3 +12,5 @@ home/lein/*.gpg
 
 home/vim/.netrwhist
 home/vim/plugged
+home/vim/init.vim
+home/vim/autoload/plug.vim.old
