@@ -26,111 +26,113 @@ let mapleader=","
 let g:plug_window ='vertical botright new'
 call plug#begin('~/.vim/plugged')
 
-Plug 'idris-hackers/idris-vim'
-Plug 'neovimhaskell/haskell-vim'
+Plug 'isRuslan/vim-es6'
 Plug 'benekastah/neomake'
-Plug 'Julian/vim-textobj-variable-segment'
-Plug 'tek/vim-textobj-ruby'
-Plug 'jonathanfilip/vim-lucius'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-lastpat'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-indent'
-Plug 'terryma/vim-expand-region'
-Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'bling/vim-bufferline'
+Plug 'briandoll/change-inside-surroundings.vim'
+Plug 'chase/vim-ansible-yaml'
+Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dleonard0/pony-vim-syntax'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'elmcast/elm-vim'
 Plug 'ervandew/supertab'
-Plug 'vim-scripts/tComment'
-Plug 'vim-scripts/paredit.vim'
-Plug 'vim-scripts/visualrepeat'
-Plug 'scrooloose/syntastic'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-scriptease'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-rbenv'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-vividchalk'
-Plug 'tpope/vim-pastie'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-leiningen'
-Plug 'kchmck/vim-coffee-script'
-Plug 'ledger/vim-ledger'
-Plug 'guns/xterm-color-table.vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-sexp'
-Plug 'briandoll/change-inside-surroundings.vim'
-Plug 'sjl/gundo.vim'
-Plug 'sjl/clam.vim'
-Plug 'sjl/vitality.vim'
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'jszakmeister/vim-togglecursor'
-Plug 'jonathanfilip/vim-lucius'
-Plug 'chriskempson/base16-vim'
-Plug 'bling/vim-airline'
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'raymond-w-ko/vim-niji'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'dyng/ctrlsf.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/vim-easy-align'
-Plug '0rca/vim-mikrotik'
-Plug 'tfnico/vim-gradle'
-Plug 'rizzatti/dash.vim'
-Plug 'majutsushi/tagbar'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'rcyrus/snipmate-snippets-rubymotion'
+Plug 'guns/xterm-color-table.vim'
 Plug 'honza/vim-snippets'
-Plug 'MarcWeber/vim-addon-local-vimrc'
-Plug 'bling/vim-bufferline'
-Plug 'jlanzarotta/bufexplorer'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/vimproc', { 'do' : 'make' }
-Plug 'plasticboy/vim-markdown'
-Plug 'john2x/flatui.vim'
-Plug 'jaxbot/semantic-highlight.vim'
-Plug 'mattn/emmet-vim'
-Plug 'raichoo/purescript-vim'
-Plug 'bitc/vim-hdevtools'
-Plug 'wting/rust.vim'
-Plug 'lambdatoast/elm.vim'
-Plug 'slim-template/vim-slim'
-Plug 'pearofducks/ansible-vim'
-Plug 'elmcast/elm-vim'
 Plug 'idris-hackers/idris-vim'
-Plug 'elixir-lang/vim-elixir'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'john2x/flatui.vim'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'Julian/vim-textobj-variable-segment'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'slashmili/alchemist.vim'
-Plug 'dleonard0/pony-vim-syntax'
-Plug 'neomake/neomake'
-Plug 'jonathanfilip/vim-lucius'
+Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-lastpat'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'kchmck/vim-coffee-script'
 Plug 'kylef/apiblueprint.vim'
+Plug 'lambdatoast/elm.vim'
+Plug 'ledger/vim-ledger'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'nazo/pt.vim'
+Plug 'nbouscal/vim-stylish-haskell'
+Plug 'neomake/neomake'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'parsonsmatt/intero-neovim'
+Plug 'plasticboy/vim-markdown'
+Plug 'raichoo/purescript-vim'
+Plug 'raymond-w-ko/vim-niji'
+Plug 'rking/ag.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/vimproc', { 'do' : 'make' }
+Plug 'sjl/clam.vim'
+Plug 'sjl/gundo.vim'
+Plug 'sjl/vitality.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'slashmili/alchemist.vim'
+Plug 'slim-template/vim-slim'
+Plug 'tek/vim-textobj-ruby'
+Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-leiningen'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-pastie'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'vim-scripts/paredit.vim'
+Plug 'vim-scripts/tComment'
+Plug 'vim-scripts/visualrepeat'
+Plug 'wting/rust.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
 " End plug section
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 0
+
+" Automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#enabled = 1
 
 let g:jsx_ext_required = 0
 
@@ -151,35 +153,8 @@ let g:vim_markdown_folding_disabled=1
 let g:macvim_hig_shift_movement=1
 
 let g:acp_enableAtStartup = 1
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_camel_case = 1
-let g:neocomplete#enable_auto_select = 0
-" let g:neocomplete#max_list =
-inoremap <expr><C-g>     neocomplete#undo_completion()
-" inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-"
-"
+let g:ag_prg="rg --vimgrep"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -199,7 +174,7 @@ else
   set guicursor+=n-v-c:blinkon0
   set background=light
   silent colorscheme lucius
-  silent LuciusDark
+  silent LuciusLight
 endif
 
 " Airline configuration
@@ -318,6 +293,7 @@ au FileType haskell nnoremap <buffer> <leader>i :HdevtoolsInfo<CR>
 " au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 "
 " autocmd! BufWritePost * Neomake credo
+"
 
 endif
 
@@ -365,7 +341,6 @@ let g:loaded_syntastic_haml_haml_checker=1
 
 set undodir=~/.cache/vim/undo
 set directory=~/.cache/vim/swap
-
 
 let g:browser = 'open'
 
@@ -437,7 +412,7 @@ nmap <leader>dd :Dash<CR>
 
 " omap t <PLug>(easymotion-bd-tl)
 "
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
 let g:ctrlp_match_window = 'bottom,order:ttb,max:20'
 
 let g:semanticTermColors = [
@@ -466,8 +441,8 @@ set splitright
 nmap <leader><leader>a yiw:CtrlSF <c-r>"<cr>
 
 
-" set ttyfast
-" set lazyredraw
+set ttyfast
+set lazyredraw
 
 " Haskell goodies
 map <silent> <Leader>e :Errors<CR>
@@ -496,4 +471,6 @@ let g:haskell_indent_if = 3
 let g:cabal_indent_section = 2
 
 command! FormatJSON %!python -m json.tool
+
+map <C-p> :Files<CR>
 
