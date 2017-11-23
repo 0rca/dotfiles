@@ -26,7 +26,6 @@ let mapleader=","
 let g:plug_window ='vertical botright new'
 call plug#begin('~/.vim/plugged')
 
-Plug 'isRuslan/vim-es6'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-bufferline'
 Plug 'briandoll/change-inside-surroundings.vim'
@@ -44,6 +43,7 @@ Plug 'guns/vim-sexp'
 Plug 'guns/xterm-color-table.vim'
 Plug 'honza/vim-snippets'
 Plug 'idris-hackers/idris-vim'
+Plug 'isRuslan/vim-es6'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'john2x/flatui.vim'
@@ -76,8 +76,8 @@ Plug 'parsonsmatt/intero-neovim'
 Plug 'plasticboy/vim-markdown'
 Plug 'raichoo/purescript-vim'
 Plug 'raymond-w-ko/vim-niji'
-Plug 'rking/ag.vim'
 Plug 'rizzatti/dash.vim'
+Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimproc', { 'do' : 'make' }
