@@ -16,5 +16,4 @@
                   ;; [lein-android "0.2.3"]
                   ;; [lein-pprint "1.1.1"]
                   ]
-        :ios  {:robovm-path  "/Users/orca/robovm-0.0.13"}
 }}

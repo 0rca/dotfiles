@@ -1,4 +1,4 @@
-
+" ocaml wants it
 set rtp^="/Users/0rca/.opam/system/share/ocp-indent/vim"
 
 if &term =~ '256color'
@@ -23,23 +23,19 @@ let mapleader=","
 " let maplocalleader="\\"
 
 " Plug section
-let g:plug_window ='vertical botright new'
 call plug#begin('~/.vim/plugged')
 
-Plug 'benekastah/neomake'
+Plug 'airblade/vim-gitgutter'
+Plug 'benmills/vimux'
 Plug 'bling/vim-bufferline'
 Plug 'briandoll/change-inside-surroundings.vim'
-Plug 'chase/vim-ansible-yaml'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dleonard0/pony-vim-syntax'
+Plug 'eagletmt/ghcmod-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'elmcast/elm-vim'
 Plug 'ervandew/supertab'
 Plug 'flazz/vim-colorschemes'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-sexp'
 Plug 'guns/xterm-color-table.vim'
 Plug 'honza/vim-snippets'
 Plug 'idris-hackers/idris-vim'
@@ -58,9 +54,7 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
-Plug 'kchmck/vim-coffee-script'
 Plug 'kylef/apiblueprint.vim'
-Plug 'lambdatoast/elm.vim'
 Plug 'ledger/vim-ledger'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'majutsushi/tagbar'
@@ -68,17 +62,12 @@ Plug 'mattn/emmet-vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'nazo/pt.vim'
-Plug 'nbouscal/vim-stylish-haskell'
-Plug 'neomake/neomake'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'parsonsmatt/intero-neovim'
-Plug 'plasticboy/vim-markdown'
-Plug 'raichoo/purescript-vim'
+Plug 'mpickering/hlint-refactor-vim'
 Plug 'raymond-w-ko/vim-niji'
 Plug 'rizzatti/dash.vim'
 Plug 'rking/ag.vim'
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimproc', { 'do' : 'make' }
 Plug 'sjl/clam.vim'
@@ -86,11 +75,8 @@ Plug 'sjl/gundo.vim'
 Plug 'sjl/vitality.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'slashmili/alchemist.vim'
-Plug 'slim-template/vim-slim'
-Plug 'tek/vim-textobj-ruby'
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-characterize'
@@ -109,7 +95,9 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
@@ -117,12 +105,11 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-vividchalk'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'vim-scripts/paredit.vim'
 Plug 'vim-scripts/tComment'
 Plug 'vim-scripts/visualrepeat'
-Plug 'wting/rust.vim'
+Plug 'w0rp/ale' " asynchronous lint engine
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -138,10 +125,6 @@ let g:jsx_ext_required = 0
 
 " elm-vim configuration
 let g:elm_format_autosave = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:elm_syntastic_show_warnings = 1
 
 let g:multi_cursor_use_default_mapping=1
 " let g:multi_cursor_next_key='<C-n>'
@@ -181,6 +164,13 @@ endif
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#fnamemod = ':t'
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+xmap <CR> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " ----------------------------------------
 " Regular Vim Configuartion (No Plugins Needed)
 " ----------------------------------------
@@ -194,7 +184,7 @@ set nu  " Line numbers on
 set numberwidth=5      " don't plan on editing files longer than 65535 lines
 set nowrap  " Line wrapping on
 set linebreak "Break lines a little smarter
-set textwidth=78
+set textwidth=79
 set colorcolumn=+1
 set cmdheight=1
 set wildmode=longest:full,full
@@ -259,51 +249,39 @@ nmap <silent> <leader>v :Runtime<CR>
 " Auto Commands
 "
 if has("autocmd")
-" disable auto-wrap when editing .vimrc
-autocmd BufRead .vimrc :set formatoptions-=c
+  " disable auto-wrap when editing .vimrc
+  autocmd BufRead .vimrc :set formatoptions-=c
 
-" auto-wrap when editing text files
-autocmd BufRead *.txt :set formatoptions+=a
+  " auto-wrap when editing text files
+  autocmd BufRead *.txt :set formatoptions+=a
 
-" No more complaining about untitled documents
-" autocmd FocusLost * nested silent! wall
+  " No more complaining about untitled documents
+  " autocmd FocusLost * nested silent! wall
 
+  " When editing a file, always jump to the last cursor position.
+  " This must be after the uncompress commands.
+  autocmd BufReadPost *
+        \ if line("'\"") > 1 && line ("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 
-" When editing a file, always jump to the last cursor position.
-" This must be after the uncompress commands.
-autocmd BufReadPost *
-      \ if line("'\"") > 1 && line ("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+  " strip trailing whitespace
+  autocmd BufWritePre * :%s/\s\+$//e
 
-" strip trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+  " recognize Markdown
+  autocmd BufNewFile,BufRead *.md  set filetype=markdown
 
-" recognize Markdown
-autocmd BufNewFile,BufRead *.md  set filetype=markdown
+  " recognize Apple sandbox files
+  autocmd BufRead *.sb             setf scheme
 
-" recognize Apple sandbox files
-autocmd BufRead *.sb             setf scheme
-
-" recognize haml and hamlc
-autocmd BufNewFile,BufRead *.hamlc  setf haml
-
-au FileType haskell nnoremap <buffer> <leader>t :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <leader>i :HdevtoolsInfo<CR>
-" au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-"
-" autocmd! BufWritePost * Neomake credo
-"
+  " recognize haml and hamlc
+  autocmd BufNewFile,BufRead *.hamlc  setf haml
 
 endif
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
 nmap Q gqap
-
-
-" remap escape insert mode
-" inoremap lk <Esc>
 
 " https://ariejan.net/2012/03/21/from-11-34s-to-0-625s-for-opening-a-rb-file-in-vim/
 if !empty($MY_RUBY_HOME)
@@ -336,9 +314,6 @@ endif
 nmap <c-w><c-c> <c-w>c
 nmap <c-c><c-;> <c-w>c
 
-" disable haml checker -- it's horribly slow
-let g:loaded_syntastic_haml_haml_checker=1
-
 set undodir=~/.cache/vim/undo
 set directory=~/.cache/vim/swap
 
@@ -356,11 +331,7 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 nmap <C-x>g :Gstatus<CR>
 nmap <C-x>; :
 
-autocmd BufRead .vimrc :iab <buffer> bu Bundle:
-
-" Start interactive EasyAlign in visual mode
-vmap <Enter> <Plug>(EasyAlign)
-
+" autocmd BufRead .vimrc :PlugInstall
 
 " Emacs/bash-like navigation/editing in command and insert modes
 noremap! <C-a>  <Home>
@@ -381,40 +352,7 @@ function! s:html_my_settings()
   inoremap <buffer> <lt>/ </<C-X><C-O>
 endfunction
 
-" always keep cursor in the middle
-set scrolloff=5
-
-nmap <F8> :TagbarToggle<CR>
-nmap <leader>dd :Dash<CR>
-
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" let g:unite_source_file_async_command = "git ls-files"
-" nnoremap <c-p> :Unite -no-split -start-insert buffer file/async<cr>
-
-" Custom mappings for the unite buffer
-" autocmd FileType unite call s:unite_settings()
-" function! s:unite_settings()
-"   " Play nice with supertab
-"   let b:SuperTabDisabled=1
-"   " Enable navigation with control-j and control-k in insert mode
-"   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-"   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-"   imap <buffer> qq <C-c>
-" endfunction
-
-" nmap w <Plug>(easymotion-bd-w)
-" nmap s <Plug>(easymotion-s2)
-" nmap S <Plug>(easymotion-bd-s2)
-" nmap t <Plug>(easymotion-bd-t2)
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
-" nmap f <Plug>(easymotion-sl)
-
-" omap t <PLug>(easymotion-bd-tl)
-"
 let g:airline#extensions#tmuxline#enabled = 1
-let g:ctrlp_match_window = 'bottom,order:ttb,max:20'
-
 let g:semanticTermColors = [
       \ 1,2,3,4,5,6,17,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,
       \ 40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,
@@ -432,33 +370,21 @@ let g:semanticTermColors = [
 
 " http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 " Open new split panes to right and bottom, which feels more natural than Vim’s default:
+
+" always keep cursor in the middle
+set scrolloff=5
+
 set splitbelow
 set splitright
-
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-
-" fast ag search for word under cursor
-nmap <leader><leader>a yiw:CtrlSF <c-r>"<cr>
-
-
 set ttyfast
 set lazyredraw
 
-" Haskell goodies
-map <silent> <Leader>e :Errors<CR>
-map <Leader>s :SyntasticToggleMode<CR>
-" let g:syntastic_auto_loc_list=1
-" Reload
-map <silent> tu :call GHC_BrowseAll()<CR>
-" Type Lookup
-map <silent> tw :call GHC_ShowType(1)<CR>
+nmap <F8> :TagbarToggle<CR>
+nmap <leader>h :Dash<CR>
 
+" fast ag search for word under cursor
+nmap <leader><leader>a yiw:Ag <c-r>"<cr>
 
-" Disable ghc-mod
-let g:syntastic_haskell_checkers = ['hdevtools', 'hlint', 'scan']
-let g:syntastic_haskell_hdevtools_args = '-g'
-let g:syntastic_ruby_checkers = ['rubocop']
-"
 " save file shortcut
 map <C-s> :w<CR>
 
@@ -473,4 +399,12 @@ let g:cabal_indent_section = 2
 command! FormatJSON %!python -m json.tool
 
 map <C-p> :Files<CR>
+map q <Nop>
+
+let g:airline#extensions#ale#enabled = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+map ]z :tabnext<CR>
+map [z :tabprevious<CR>
 

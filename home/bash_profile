@@ -1,22 +1,22 @@
 export EDITOR='nvim'
 export VISUAL='view'
 export PAGER='less'
+export TERM=xterm-256color
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-source $HOME/.git-prompt.sh
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+source /etc/bashrc
 
-
-# eval $(dircolors -b $HOME/.dircolors)
-
-[ -r $HOME/.aliases.bash ] && source $HOME/.aliases.bash
-[ -r $HOME/.bash.local ] && source $HOME/.bash.local
+# eval $(dircolors -b ~/.dircolors)
+[ -r ~/.aliases.bash ] && source ~/.aliases.bash
+[ -r ~/.bash.local ] && source ~/.bash.local
+# [ -f /usr/local/share/liquidprompt ] && source /usr/local/share/liquidprompt
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -e ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh
+[ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
 
 shopt -s cdspell
-
-### Added by the Heroku Toolbelt (should reside in local profile)
-export PATH="/usr/local/heroku/bin:$PATH"
+stty -ixon -igncr
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
@@ -28,47 +28,7 @@ export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 # After each command, append to the history file and reread it
-# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-export TERM=xterm-256color
-
-# switch between Java JDKs
-# credit goes to Neeme Praks @ superuser.com
-# [http://superuser.com/questions/490425/how-do-i-switch-between-java-7-and-java-6-on-os-x-10-8-2/568016#568016]
-# Usage: setjdk 1.7 (or 1.6)
-function setjdk() {
-  if [ $# -ne 0 ]; then
-   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
-   if [ -n "${JAVA_HOME+x}" ]; then
-    removeFromPath $JAVA_HOME
-   fi
-   export JAVA_HOME=`/usr/libexec/java_home -v $@`
-   export PATH=$JAVA_HOME/bin:$PATH
-  fi
-  # echo JAVA_HOME set to $JAVA_HOME
-  java -version
-}
-
-function removeFromPath() {
-    export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
-}
-
-stty -ixon -igncr
-# setjdk 1.8
-
-# Base16 Shell
-BASE16_SCHEME="default"
-BASE16_SHELL="/Users/orca/code/base16-builder/output/shell/base16-$BASE16_SCHEME.light.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-
-eval "$(stack --bash-completion-script stack)"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
-# OPAM configuration
-#. /Users/0rca/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
+# export PROMPT_COMMAND="history -a; history -c; history -r"
 ulimit -S -n 512
 
+eval "$(stack --bash-completion-script stack)"
