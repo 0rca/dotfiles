@@ -1,19 +1,30 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='view'
 export PAGER='less'
 export TERM=xterm-256color
+export DARK_MODE=$(osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode()")
 
+echo "Sourcing /etc/bashrc"
 source /etc/bashrc
 
-# eval $(dircolors -b ~/.dircolors)
+echo "Sourcing aliases"
 [ -r ~/.aliases.bash ] && source ~/.aliases.bash
+
+echo "Sourcing local"
 [ -r ~/.bash.local ] && source ~/.bash.local
-# [ -f /usr/local/share/liquidprompt ] && source /usr/local/share/liquidprompt
+
+echo "Sourcing fzf"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -e ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
+
+echo "Sourcing bash completion"
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-[ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh
+
+echo "Sourcing asdf"
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
+
+eval "$(direnv hook bash)"
 
 shopt -s cdspell
 stty -ixon -igncr
@@ -31,4 +42,7 @@ shopt -s histappend
 # export PROMPT_COMMAND="history -a; history -c; history -r"
 ulimit -S -n 512
 
-eval "$(stack --bash-completion-script stack)"
+# eval "$(stack --bash-completion-script stack)"
+echo "Sourcing nix"
+if [ -e /Users/0rca/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/0rca/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+

@@ -1,5 +1,5 @@
 set bell-style visible
-set completion-ignore-case On
+set completion-ignore-case Off
 set completion-query-items 500
 set horizontal-scroll-mode On
 set mark-symlinked-directories On

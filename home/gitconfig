@@ -97,7 +97,7 @@
   default = tracking
 [core]
   autocrlf = input
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore
   whitespace = cr-at-eol
   eol = native
@@ -121,6 +121,7 @@
 [user]
   email = alex.vzorov@gmail.com
   name = Alex Vzorov
+	signingkey = 6D1C874A17F1879EF546F12A335DB791ADD94AD8
 [github]
   user = 0rca
 [difftool "sourcetree"]
@@ -138,3 +139,5 @@
 	required = true
 [mergetool]
 	keepBackup = true
+[credential "https://github.com"]
+	helper = /Users/0rca/.local/bin/hub-credential-helper
